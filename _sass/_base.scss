@@ -677,6 +677,8 @@ footer.sticky-bottom {
 .post-title {
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
+      font-weight: 400;
+      font-size: 1.2rem;
   }
   font-weight: bold;
 }
@@ -716,6 +718,8 @@ footer.sticky-bottom {
 
     mjx-container[jax="CHTML"][display="true"] {
       display: unset;
+      font-weight: 400;
+      font-size: 1.2rem;
     }
   }
 }
