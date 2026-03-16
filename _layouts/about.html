@@ -1,0 +1,136 @@
+---
+layout: default
+---
+
+<!-- about.html -->
+      <div class="post">
+        <header class="post-header">
+          <h1 class="post-title">
+              {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
+          </h1>
+          <p class="desc">{{ page.subtitle }}</p>
+        </header>
+
+        <article>
+          {% if page.profile -%}
+          <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
+            {%- if page.profile.image %}
+              {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+
+              {% if page.profile.image_circular %}
+                {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
+              {% else %}
+                {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
+              {% endif %}
+
+              {% include figure.html
+              path=profile_image_path
+              class=profile_image_class
+              alt=page.profile.image
+              cache_bust=true -%}
+            {% endif -%}
+            {%- if page.profile.more_info %}
+            <div class="more-info">
+              {{ page.profile.more_info }}
+            </div>
+            {%- endif %}
+          </div>
+          {%- endif %}
+
+          <div class="ovrv">
+            {{ content }}
+          </div>
+
+        </article>
+</div>
+
+<br><br><br>
+<hr>
+<br><br><br>
+
+<div class="row mt-4 justify-content-center  text-center">
+    <div class="col-md-12">
+        <div class = "repo-img-light" style="
+          background-color: #1e2530;
+          border-left: 3px solid #4a6fa5;
+          padding: 30px 40px;
+          border-radius: 8px;
+          transition: all 0.25s ease;
+        "
+        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+        "
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+        >
+            {% if page.news and site.announcements.enabled -%}
+            <div style="text-align: center; margin: 0 auto;">
+              <h3><a href="{{ '/news/' | relative_url }}" style="color: inherit;">Announcements</a></h3>
+              <br><br>
+              {%- include news.html limit=true %}
+              </div>
+            {%- endif %}
+        </div>
+        <div class = "repo-img-dark" style="
+          background-color: #f4f7fb;
+          border-left: 3px solid #4a6fa5;
+          padding: 30px 40px;
+          border-radius: 8px;
+          transition: all 0.25s ease;
+        "
+        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+        "
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+        >
+            {% if page.news and site.announcements.enabled -%}
+            <div style="text-align: center; margin: 0 auto;">
+              <h3><a href="{{ '/news/' | relative_url }}" style="color: inherit;">Announcements</a></h3>
+              <br><br>
+              {%- include news.html limit=true %}
+              </div>
+            {%- endif %}
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="row mt-4 justify-content-center  text-center">
+    <div class="col-md-12">
+        <div class = "repo-img-light" style="
+          background-color: #1e2530;
+          border-left: 3px solid #4a6fa5;
+          padding: 30px 40px;
+          border-radius: 8px;
+          transition: all 0.25s ease;
+        "
+        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+        "
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+        >
+            {% if page.latest_posts and site.latest_posts.enabled -%}
+              <h3><a href="{{ '/blog/' | relative_url }}" style="color: inherit; ">Latest Blog Posts</a></h3>
+              <br>
+              {%- include latest_posts.html %}
+            {%- endif %}
+        </div>
+        <div class = "repo-img-dark" style="
+          background-color: #f4f7fb;
+          border-left: 3px solid #4a6fa5;
+          padding: 30px 40px;
+          border-radius: 8px;
+          transition: all 0.25s ease;
+        "
+        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+        "
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+        >
+            {% if page.latest_posts and site.latest_posts.enabled -%}
+              <h3><a href="{{ '/blog/' | relative_url }}" style="color: inherit; ">Latest Blog Posts</a></h3>
+              <br>
+              {%- include latest_posts.html %}
+            {%- endif %}
+        </div>
+    </div>
+</div>
+
+<br><br><br><br>
+<br><br><br><br>
