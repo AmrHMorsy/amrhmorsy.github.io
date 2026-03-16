@@ -25,6 +25,14 @@ p{
   color: var(--global-text-color);
 }
 
+.BlogPost p,
+.BlogPost span,
+.BlogPost li,
+.BlogPost div {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
 mjx-container {
       font-weight: 400;
       font-size: 1.2rem;

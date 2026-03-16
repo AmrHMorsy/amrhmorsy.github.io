@@ -162,7 +162,7 @@ float ComputeOffsetFromPlane(Plane P, glm::vec3 Q)
 <blockquote>
 <div class="row align-items-center mt-3">
   <div class="col-md-12">
-         We can also derive the equation of a plane if only given three points \(P\), \(Q\), and \(R\) on the plane. Using these points, we can form two vectors \(PQ\) and \(PR\) as follows: 
+We can also derive the equation of a plane if only given three points \(P\), \(Q\), and \(R\) on the plane. Using these points, we can form two vectors \(PQ\) and \(PR\) as follows: 
 
 $$
 \vec{PQ} = Q - P
