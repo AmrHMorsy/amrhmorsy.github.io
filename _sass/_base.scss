@@ -25,19 +25,11 @@ p{
   color: var(--global-text-color);
 }
 
-BlogPost{
+.blog-post{
   display: block;
   font-weight: 400;
   font-size: 1.2rem;
   color: var(--global-text-color);
-}
-
-.BlogPost p,
-.BlogPost span,
-.BlogPost li,
-.BlogPost div {
-  font-weight: 400;
-  font-size: 1.2rem;
 }
 
 mjx-container {
