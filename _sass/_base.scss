@@ -25,6 +25,11 @@ p{
   color: var(--global-text-color);
 }
 
+mjx-container {
+      font-weight: 400;
+      font-size: 1.2rem;
+}
+
 .vulkan{
   color: var(--global-important-variable);
   font-weight: 700;
@@ -163,6 +168,7 @@ blockquote {
   border-left: 5px solid var(--global-theme-color);
   margin: 1.5em 0;
   padding: 1em;
+  font-weight: 400;
   font-size: 1.2rem;
 
   p {
@@ -993,6 +999,9 @@ figure.highlight {
 }
 
 pre {
+  font-weight: 400;
+  font-size: 1.1rem;
+
   color: var(--global-theme-color);
   background-color: var(--global-code-bg-color);
   border-radius: 6px;
@@ -1008,6 +1017,9 @@ pre {
 }
 
 code {
+  font-weight: 400;
+  font-size: 1.1rem;
+
   color: var(--global-theme-color);
   background-color: var(--global-code-bg-color);
   border-radius: 3px;
