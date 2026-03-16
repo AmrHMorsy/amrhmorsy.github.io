@@ -25,6 +25,13 @@ p{
   color: var(--global-text-color);
 }
 
+BlogPost{
+  display: block;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--global-text-color);
+}
+
 .BlogPost p,
 .BlogPost span,
 .BlogPost li,
@@ -108,12 +115,6 @@ mjx-container {
 
 strong, b {
   font-weight: 700;
-}
-
-BlogPost{
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: var(--global-text-color);
 }
 
 hr {
