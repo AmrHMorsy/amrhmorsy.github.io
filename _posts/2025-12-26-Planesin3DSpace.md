@@ -2,7 +2,7 @@
 layout: post
 title: Planes in 3D Space
 date: 2025-12-27 09:00:00
-description: Planes in 3D Space
+description:
 tags:
 categories:
 thumbnail: assets/img/Blog/PlanesIn3DSpace/

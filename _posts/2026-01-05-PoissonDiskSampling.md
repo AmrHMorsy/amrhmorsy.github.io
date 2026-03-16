@@ -2,7 +2,7 @@
 layout: post
 title: Poisson-Disk Sampling
 date: 2026-01-05 09:00:00
-description: Sampling Algorithm
+description:
 tags:
 categories:
 thumbnail: assets/img/Blog/PoissonDiskSampling/

@@ -2,7 +2,7 @@
 layout: post
 title: Complete Vulkan Tutorial
 date: 2026-01-23 09:00:00
-description: Vulkan Tutorial
+description:
 tags:
 categories:
 thumbnail: assets/img/Blog/CompleteVulkanTutorial/
