@@ -1,5 +1,5 @@
 {% if site.news != blank -%}
-            <div class="news">
+            <div class="news  justify-content-center  text-center">
             {%- assign news_size = site.news | size -%}
             <div class="table-responsive" {% if include.limit and site.announcements.scrollable and news_size > 3 %}style="max-height: 60vw"{% endif %}>
               <table class="table table-sm table-borderless">
