@@ -308,6 +308,9 @@
          location = "group:LightCulling.md">
       </FileRef>
       <FileRef
+         location = "group:2026-03-05-VertexInput.md">
+      </FileRef>
+      <FileRef
          location = "group:2025-12-26-Planesin3DSpace.md">
       </FileRef>
       <FileRef
