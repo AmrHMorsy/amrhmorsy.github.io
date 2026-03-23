@@ -138,7 +138,7 @@ layout(set = 0, binding = 0) uniform VertexShaderUniformVariables {
 
 void main()
 {
-    gl_Position = vs.cameraProjectionMatrix * vs.cameraViewMatrix * modelMatrix * vec4(vertex, 1.0);
+    gl_Position = vs.cameraProjectionMatrix * vs.cameraViewMatrix * vs.modelMatrix * vec4(vertex, 1.0);
 }
 ```
 
@@ -345,7 +345,8 @@ static VkFormat GetAttributeFormat(spirv_cross::SPIRType type)
                 default:
                     throw std::runtime_error("ERROR::INVALID UINT VEC_SIZE");
             };
-        
+        default:
+            throw std::runtime_error("ERROR::INVALID BASE_TYPE");
     };
 }
 ```
@@ -413,10 +414,17 @@ static VertexInputInfo Build(std::string vsFilePath, bool interleaved)
     uint32_t offset = 0;
     std::vector<uint32_t> attributeSizes;
     
+    // Iterate through each vertex input
     for(uint32_t i = 0; i < resources.stage_inputs.size(); i++){
         spirv_cross::Resource r = resources.stage_inputs[i];
+        
+        // Extract the data type of vertex input i
         spirv_cross::SPIRType type = compiler.get_type(r.type_id);
+        
+        // Extract the location of vertex input i
         uint32_t location = compiler.get_decoration(r.id, spv::DecorationLocation);
+        
+        // Get the format of the input according to its data type
         VkFormat format = GetAttributeFormat(type);
         
         v.attributes.push_back(VkVertexInputAttributeDescription{
@@ -428,9 +436,12 @@ static VertexInputInfo Build(std::string vsFilePath, bool interleaved)
         
         uint32_t attributeSize = GetAttributeSize(format);
         attributeSizes.push_back(attributeSize);
+        
+        // Increment the offset for use, in case data is interleaved
         offset += attributeSize;
     }
             
+    // If interleaved, only one buffer is needed
     if(interleaved)
         v.bindings.push_back(VkVertexInputBindingDescription{
             .binding = 0,
