@@ -609,7 +609,8 @@ private:
                     default:
                         throw std::runtime_error("ERROR::INVALID UINT VEC_SIZE");
                 };
-            
+            default:
+                throw std::runtime_error("ERROR::INVALID BASE_TYPE");
         };
     }
 };
