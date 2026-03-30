@@ -109,6 +109,9 @@ public:
     }
 };
 ```
+<br>
+
+The github repository containing the entire code for the Dart-Throwing algorithm can be found [here](https://github.com/AmrHMorsy/Dart-Throwing-Algorithm). 
 
 <br>
 
@@ -576,6 +579,10 @@ public:
     }
 };
 ```
+
+<br>
+
+The github repository containing the entire code for Bridson's algorithm can be found [here](https://github.com/AmrHMorsy/Bridsons-Algorithm). 
 
 <br>
 

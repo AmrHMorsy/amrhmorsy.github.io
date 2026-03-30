@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tiled Light Culling in Vulkan
-date: 2026-03-15 09:00:00
+date: 2026-03-25 09:00:00
 description:
 tags:
 categories:
@@ -67,6 +67,23 @@ The **tiled light culling** algorithm is described as follows:
 
 <br>
 
+```c++
+glm::vec4 ComputeBoundingSphere(glm::vec3 lightPosition, glm::vec3 lightColor, float lightIntensity, float minLightIntensityPercentage)
+{
+    glm::vec3 finalLightColor = lightIntensity * lightColor;
+    float maxLightIntensityComponent = std::max({finalLightColor.r, finalLightColor.g, finalLightColor.b});
+    float offset = (minLightIntensityPercentage == 0)? 0.01: (minLightIntensityPercentage/100.0f);
+    float minLightIntensity = offset * maxLightIntensityComponent;
+    
+    glm::vec3 center = lightPosition;
+    float radius = sqrt(maxLightIntensityComponent/minLightIntensity);
+    
+    return glm::vec4(center, radius);
+}
+```
+
+<br>
+<br>
 
 ```c++
 #version 450
