@@ -23,6 +23,7 @@ Vejaler Engine — A game engine built using the Vulkan API
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
+    "assets/img/Blog/CompleteVulkanTutorial/CarScene.png",
     "assets/img/Blog/CompleteVulkanTutorial/SpaceShipScene.png",
     "assets/img/Blog/CompleteVulkanTutorial/PlaneScene.png",
     "assets/img/Blog/CompleteVulkanTutorial/CakeScene.png"

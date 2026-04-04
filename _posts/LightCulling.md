@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tiled Light Culling in Vulkan
-date: 2026-03-25 09:00:00
+date: 2026-03-29 09:00:00
 description:
 tags:
 categories:
@@ -10,223 +10,221 @@ featured: false
 ---
 
 <br>
+### **Introduction**
+<br>
 
-During rasterization, the geometry is converted into fragments, and the fragment shader is executed for each fragment. 
+During rasterization, the triangles in the scene are converted into fragments, and the fragment shader is executed for each fragment. The fragment shader adds up the lighting contribution from each light source in the scene, and computes the final color of the fragment. 
 
-The fragment shader computes the lighting contribution from each light source in the scene and adds them up. For simple scenes with a few light sources, this setup can be reasomable and an interactive frame-rate can be maintained. However, for scenes with hundreds and thousands of light sources, this setup would not scale well, be feasible and the frame-rates would drop. Hence, the idea of light culling was introduced. 
+<figure class="col-md-12 text-center theme-img repo-img-light">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/1.png" class="scaled-img70" %}
+</figure>
+<figure class="col-md-12 text-center theme-img repo-img-dark">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/1.png" class="scaled-img70" %}
+</figure>
 
-As we know, the intensity of the light coming from a specific light source decreases as we get further and further from the light source. In fact, we tend to model the drop in intensity using the inverse square attentuation. That is, 
+This is the typical setup that exists in most real-time graphics applications. It can achieve interactive frame-rate for simple scenes with a few light sources. However, it does not scale well with the increase in the number of light sources in the scene. That is, it will fail to maintain adequate frame-rate with more complex scenes with hundreds or thousands of light sources. Hence, the idea of light culling was introduced. 
+
+Light culling is an optimization technique in rendering. The idea of light culling is that at certain great distances from the light source, the light contribution from that light source becomes so small, because of attentuation, that ignoring the light source completely in the fragment shading computation will not affect the physical accuracy of the final scene by a great deal, and, in return, save us significant computational cost.
+
+The model that is most commonly used to account for the attentuation of the light sources in computer graphics is the **inverse square law**. This model states that the light intensity $$I$$ is inversely proportional to the square of the distance $$d$$ from the light source. That is, the intensity of the light source at distance $$d$$; call it $$I_d$$, is
 
 $$
 I_d = \frac{I}{d^2}
 $$
 
-This function has an asymptote as zero. This means it will never reach zero. The idea of light culling is that at certain great distances from the light source, the light contribution from the light source becomes so small, that we can ignore that light source completely, and it would not affect the physical accuracry of the final scene by a great deal. This way we can save alot of computational cost. 
-
+<br>
+### **Tiled Light Culling Algorithm**
 <br>
 
 The **tiled light culling** algorithm is described as follows: 
 <br>
 <br>
-1. For each light source $$L$$, create a bounding sphere $$B(c, r)$$ such that: 
+1. For each light source $$L_k$$, create a bounding sphere $$B_k$$ such that: 
 
-    - The center $$c$$ of the sphere is the light position. 
+    - The center $$c_k$$ of the sphere is the light position. 
     
-    - The radius $$r$$ of the sphere is the distance at which the light intensity $$I$$ becomes negligible $$ε$$, assuming the use of the inverse square attentuation of the light intensity 
-    <br>
-    <br>
+    - The radius $$r_k$$ of the sphere is the distance at which the maximum color component of the light intensity $$I_k$$ equals a user-defined scalar value, let's call it $$I_{min}$$, assuming the use of the **inverse square attentuation** of the light intensity $$I_k$$. That is, 
+
     $$
-    I_r = \frac{I}{r^2}
-    $$
-    <br>
-    <br>
-    That is, objects at distances $$d > r$$ will receive very little light contribution from the light source $$L$$, that we can ignore its light contribution all together and the physical accuracy of the final scene will not be noticeably affected. A reasonable value for $$ε$$ can be $$1 \; \%$$ of $$I$$. This means that 
-    <br>
-    <br>
-    $$
-    r = \sqrt{\frac{I}{0.01 * I}} = \sqrt{\frac{1}{0.01}} = \sqrt{100} = 10
+    r = \sqrt{\frac{max \; (I.r, \; I.g, \; I.b)}{I_{min}}}
     $$
 
-2. Dissect the screen into tiles with equal resolution.
+2. Dissect the screen into tiles $$t_{ij}$$ with equal resolution $$R \times R$$.
 
-3. For each tile, compute its frustum.
+3. For each tile $$t_{ij}$$, compute its frustum $$F_{ij}$$.
 
-3. Dispatch a compute shader In a seperate pass before the shading pass, iterate through all light sources. For each light sources $$L$$, test for intersection between 
+4. For each tile $$t_{ij}$$, initialize the list $$V_{ij}$$. This list will contain the IDs of the light sources that are inside the frustum $$F_{ij}$$.
 
-    - Test the intersection between the light bounding sphere $$B$$ and each tile frustum. 
-    <br>
-    <br>
-    - If the light bounding sphere intersects the tile frustum, record the ID of the light into the per-tile light list. 
-    <br>
-    <br>
-4. In the main shading pass: 
+5. Iterate through all the light sources $$L_k$$ and test the intersection between the light bounding sphere $$B_{k}$$ and each tile frustum $$F_{ij}$$. If $$B_{k}$$ intersects or is inside the frustum $$F_{ij}$$, record the ID of the light source $$L_k$$ into the list $$V_{ij}$$.
 
-    - Calculate the tile index in which the fragment belongs to.
+6. In the fragment shader of the main shading pass: 
+
+    - Locate the tile $$t_{ij}$$ that the fragment resides in. This is computed as follows: 
     
-    - Calculate the light contribution that the fragment receives by only going through the list of lights of that tile. 
+    $$
+    t_{ij} = \frac{gl\_FragCoord.xy}{R}
+    $$
+        
+    - Compute the lighting of the fragment by only considering the light sources that are inside the list $$V_{ij}$$.
 
 <br>
+### **Light Bounding Sphere**
+<br>
+
+Below is the code for the function that computes the bounding sphere for a light source: 
 
 ```c++
-glm::vec4 ComputeBoundingSphere(glm::vec3 lightPosition, glm::vec3 lightColor, float lightIntensity, float minLightIntensityPercentage)
+glm::vec4 ComputeBoundingSphere(glm::vec3 position, glm::vec3 color, float minIntensity)
 {
-    glm::vec3 finalLightColor = lightIntensity * lightColor;
-    float maxLightIntensityComponent = std::max({finalLightColor.r, finalLightColor.g, finalLightColor.b});
-    float offset = (minLightIntensityPercentage == 0)? 0.01: (minLightIntensityPercentage/100.0f);
-    float minLightIntensity = offset * maxLightIntensityComponent;
+    float radius = sqrt(max{color.r, color.g, color.b} / minIntensity);
     
-    glm::vec3 center = lightPosition;
-    float radius = sqrt(maxLightIntensityComponent/minLightIntensity);
-    
-    return glm::vec4(center, radius);
+    return glm::vec4(position, radius);
 }
 ```
 
+The data structure used to represent the bounding sphere is **vec4**. The **XYZ** component of the vector will contain the center of the sphere and the **W** component will contain the radius of the sphere. 
+
+<figure class="col-md-12 text-center theme-img repo-img-light">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/vec4.png" class="scaled-img50" %}
+</figure>
+<figure class="col-md-12 text-center theme-img repo-img-dark">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/vec4.png" class="scaled-img50" %}
+</figure>
+
 <br>
+### **Depth Prepass**
 <br>
 
-```c++
+
+```cpp
 #version 450
 
-layout(local_size_x = 16, local_size_y = 16, local_size_z = 1) in;
+layout(location = 0) in vec3 vertex;
 
-layout(std430, binding = 0) readonly buffer LightBoundingSpheresViewSpace{
-    vec4 lightBoundingSpheresViewSpace[];
-};
-
-layout(std430, binding = 1) buffer TileLightCount {
-    uint tileLightCount[];
-};
-
-layout(std430, binding = 2) buffer TileLightIndices {
-    uint tileLightIndices[];
-};
-
-layout(std140, binding = 3) uniform LightCullingUniformVariables{
-    float nearClippingPlane;
-    float farClippingPlane;
-    uvec2 numTiles2D;
-};
-
-layout(std430, binding = 4) readonly buffer TileDepthMinMax{
-    vec2 tileDepthMinMax[];
-};
-
-layout(std430, binding = 5) readonly buffer TilesFrustumPlanes{
-    vec4 tilesFrustumPlanes[];
-};
-
-layout(std430, binding = 6) readonly buffer TilesGeometryBitMask{
-    uint tilesGeometryBitMask[];
-};
-
-const uint numCellsPerTile = 32;
-const uvec2 tileResolution = uvec2(16, 16);
-
-struct LightVisibilityInfo{
-    bool isVisible;
-    uint minCell;
-    uint maxCell;
-};
-
-uint ComputeCellIndex(float depth, float minDepth, float maxDepth)
-{
-    float depth01 = log(depth / minDepth) / log(maxDepth / minDepth);
-    uint cellIndex = uint(depth01 * float(numCellsPerTile));
-    
-    return max(min(cellIndex, numCellsPerTile - 1u), 0);
-}
-
-LightVisibilityInfo IsLightVisible(vec4 lightBoundingSphere, float minDepth, float maxDepth, uint tileGeometryBitMask, uint tileIndex)
-{
-    LightVisibilityInfo info;
-    
-    vec3 lightCenter = lightBoundingSphere.xyz;
-    float lightDepth = -lightBoundingSphere.z;
-    float radius = lightBoundingSphere.w;
-    float lightMinDepth = lightDepth + radius;
-    float lightMaxDepth = lightDepth - radius;
-    
-    if(lightMinDepth < minDepth){
-        info.isVisible = false;
-        return info;
-    }
-    if(lightMaxDepth > maxDepth){
-        info.isVisible = false;
-        return info;
-    }
-    
-    uint baseP = tileIndex * 4;
-        
-    for(int i = 0; i < 4; i++){
-        vec4 plane = tilesFrustumPlanes[baseP+i];
-        if(dot(plane, vec4(lightCenter, 1.0f)) < -radius){
-            info.isVisible = false;
-            return info;
-        }
-    }
-    
-    uint i1 = ComputeCellIndex(lightMinDepth, minDepth, maxDepth);
-    uint i2 = ComputeCellIndex(lightMaxDepth, minDepth, maxDepth);
-    
-    info.minCell = min(i1, i2);
-    info.maxCell = max(i1, i2);
-    
-    bool isDiscard = true;
-    for(uint i = info.minCell; i <= info.maxCell; i++){
-        if(((tileGeometryBitMask >> i) & 1u) == 1){
-            isDiscard = false;
-            break;
-        }
-    }
-    
-    if(isDiscard){
-        info.isVisible = false;
-        return info;
-    }
-
-    info.isVisible = true;
-    return info;
-}
+layout(binding  = 0) uniform VertexShaderUniformVariables{
+    mat4 cameraViewMatrix;
+    mat4 cameraProjectionMatrix;
+} vs;
 
 void main()
 {
-    uint threadIndex = (gl_LocalInvocationID.y * tileResolution.x) + gl_LocalInvocationID.x;
-    
-    uint numLights = lightBoundingSpheresViewSpace.length();
-    
-    uint tileIndex = (gl_WorkGroupID.y * uint(numTiles2D.x)) + gl_WorkGroupID.x;
-    
-    float minDepth = tileDepthMinMax[tileIndex].x;
-    
-    float maxDepth = tileDepthMinMax[tileIndex].y;
-    
-    uint tileGeometryBitMask = tilesGeometryBitMask[tileIndex];
-
-    uint baseC = tileIndex * numCellsPerTile;
-                    
-    if(threadIndex < numCellsPerTile)
-        tileLightCount[baseC+threadIndex] = 0;
-    
-    barrier();
-    
-    if(threadIndex < numLights){
-        vec4 lightBoundingSphere = lightBoundingSpheresViewSpace[threadIndex];
-        LightVisibilityInfo info = IsLightVisible(lightBoundingSphere, minDepth, maxDepth, tileGeometryBitMask, tileIndex);
-        if(info.isVisible){
-            uint baseI = tileIndex * numLights * numCellsPerTile;
-            for(uint j = info.minCell; j <= info.maxCell; j++){
-                uint i = atomicAdd(tileLightCount[baseC+j], 1);
-                tileLightIndices[baseI+(j*numLights)+i] = threadIndex;
-            }
-        }
-    }
+    mat4 modelMatrix = mat4(1.0f);
+    gl_Position = vs.cameraProjectionMatrix * vs.cameraViewMatrix * modelMatrix *  vec4(vertex, 1.0);
 }
 ```
 
-<br><br>
 
-```c++
+
+<br>
+### **Tile Frustum**
+<br>
+
+A frustum consists of $$6$$ planes: **top**, **bottom**, **right**, **left**, **near**, and **far**. 
+
+<figure class="col-md-12 text-center theme-img repo-img-light">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/frustum.png" class="scaled-img40" %}
+</figure>
+<figure class="col-md-12 text-center theme-img repo-img-dark">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/frustum.png" class="scaled-img40" %}
+</figure>
+
+To be able to check for intersection between the bounding sphere of the light source and the tile frustum, we first need to construct the frustum of the tile. We can compute the top, bottom, right, and left plane using the tile index on the screen and the projection and the view matrix as follows: 
+
+However, for the near and far plane of the tile frustum, we cannot use the near and far clipping plane of the camera. It can work. However, it would be too loose. For better performance, we should instead use the minimum depth and maximum depth of all pixels inside the tile as the near and far plane of the frustum. For better performance, we should compute the minimum and maximum depth in each tile using a compute shader, in a seperate pass before the light culling pass. 
+
+Below is the code for the function that computes the frustum for each tile: 
+
+```cpp
+std::vector<glm::vec4> ExtractTilesFrustumPlanes(glm::uvec2 numTiles2D, glm::mat4 cameraProjectionMatrix)
+{
+    std::vector<glm::vec4> tilesFrustumPlanes(numTiles2D.x * numTiles2D.y * 4);
+        
+    glm::vec4 row1 = glm::vec4(cameraProjectionMatrix[0][0], cameraProjectionMatrix[1][0], cameraProjectionMatrix[2][0], cameraProjectionMatrix[3][0]);
+    glm::vec4 row2 = glm::vec4(cameraProjectionMatrix[0][1], cameraProjectionMatrix[1][1], cameraProjectionMatrix[2][1], cameraProjectionMatrix[3][1]);
+    glm::vec4 row4 = glm::vec4(cameraProjectionMatrix[0][3], cameraProjectionMatrix[1][3], cameraProjectionMatrix[2][3], cameraProjectionMatrix[3][3]);
+        
+    float stepX = 2.0f / (float)numTiles2D.x;
+    float stepY = 2.0f / (float)numTiles2D.y;
+        
+    for(int x = 0; x < numTiles2D.x; x++){
+        float offsetX = (float)x * stepX;
+        float xMin = -1.0f + offsetX;
+        float xMax = xMin + stepX;
+        for(int y = 0; y < numTiles2D.y; y++){
+            std::array<glm::vec4, 4> tileFrustumPlanes;
+            tileFrustumPlanes[0] = row1 - (row4 * xMin);
+            tileFrustumPlanes[1] = (xMax * row4) - row1;
+                
+            float offsetY = (float)y * stepY;
+            float yMin = -1.0f + offsetY;
+            float yMax = yMin + stepY;
+            tileFrustumPlanes[2] = row2 - (row4 * yMin);
+            tileFrustumPlanes[3] = (yMax * row4) - row2;
+                
+            for(int i = 0; i < 4; i++)
+                tileFrustumPlanes[i] /= glm::length(glm::vec3(tileFrustumPlanes[i]));
+
+            int baseIndex = (y * numTiles2D.x * 4) + (x * 4);
+            for(int i = 0; i < 4; i++)
+                tilesFrustumPlanes[baseIndex + i] = tileFrustumPlanes[i];
+        }
+    }
+        
+    return tilesFrustumPlanes;
+}
+```
+
+<br>
+
+<br>
+### **Tile's Minimum and Maximum Depth**
+<br>
+
+We can compute the minimum and maximum depth in each tile in **parallel** using the following algorithm: 
+
+<blockquote>
+Let \(N\) be the total number of tiles on the screen and \(R \times R\) be the resolution of a tile. Do the following:
+<br>
+<br>
+
+<ol>
+<li>Launch \(N\) workgroups. Each workgroup should have a total of \(R^2\) threads; a grid of \(R \times R\) threads. Each thread is responsible for one pixel in that tile.</li>
+<br>
+<li> Each thread reads the depth value of the pixel within the tile it is responsible for.</li>
+<br>
+<li> After all the threads have read the depth values from the depth texture, start a loop. Each iteration of the loop corresponds to one level of the tree. The number of iterations of the loop is \(log_{2}N\). The starting iteration index is \(0\). The iteration index is \(k\). For each iteration </li>
+<br>
+<ul>
+<li> Thread \(i\) will team up with thread \(i + 2^{k}\). </li>
+<br>
+<li> Thread \(i\) will compare its depth value with the depth value of thread \(i + 2^{k}\). The maximum and minimum of both values will be stored in slot \(i\) of the array \(D\). Thread \(i + 2^{k}\) will retire, and thread \(i\) will continue on to the next level of the tree. </li>
+<br>
+<li> Enforce a barrier to make sure each pair of threads has finished comparing their depth values and have stored their max and min values in the array \(D\). </li>
+</ul>
+<br>
+<li> After the loop is finished, slot \(0\) in the array \(D\) will contain the minimum and maximum depth of the entire tile. </li>
+</ol>
+
+</blockquote>
+  
+<br>
+
+<figure class="col-md-12 text-center theme-img repo-img-light">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/DepthMinMaxTree.png" class="scaled-img70" %}
+<figcaption>Computing minmax depth in parallel using 16 threads; or a grid of \(4 \times 4\) threads</figcaption>
+</figure>
+<figure class="col-md-12 text-center theme-img repo-img-dark">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/DepthMinMaxTree.png" class="scaled-img70" %}
+<figcaption>Computing minmax depth in parallel using 16 threads; or a grid of \(4 \times 4\) threads</figcaption>
+</figure>
+
+<br>
+
+Below is the code for the compute shader that computes the minimum and maximum depth for each tile, assuming the resolution of each tile is $$16 \times 16$$, and hence, the use of a grid of $$16 \times 16$$ threads in each workgroup.
+
+<br>
+
+```cpp
 #version 450
 
 layout(local_size_x = 16, local_size_y = 16, local_size_z = 1) in;
@@ -243,23 +241,10 @@ layout(std430, binding = 2) buffer TileDepthMinMax{
     vec2 tileDepthMinMax[];
 };
 
-layout(std430, binding = 3) buffer TilesGeometryBitMask{
-    uint tilesGeometryBitMask[];
-};
-
-const uint numCellsPerTile = 32;
 const uvec2 tileResolution = uvec2(16, 16);
 const uint numThreadsPerWorkGroup = tileResolution.x * tileResolution.y;
 
 shared vec2 threadDepths[numThreadsPerWorkGroup];
-
-uint ComputeCellIndex(float depth, float minDepth, float maxDepth)
-{
-    float depth01 = log(depth / minDepth) / log(maxDepth / minDepth);
-    uint cellIndex = uint(depth01 * float(numCellsPerTile));
-    
-    return max(min(cellIndex, numCellsPerTile - 1u), 0);
-}
 
 float LinearizeDepth(float depth)
 {
@@ -296,8 +281,8 @@ void main()
     
     if(threadIndex == 0)
         tileDepthMinMax[tileIndex] = vec2(minDepth, maxDepth);
-
-    uint threadCellIndex = ComputeCellIndex(depth, minDepth, maxDepth);
-    atomicOr(tilesGeometryBitMask[tileIndex], 1u << threadCellIndex);
 }
 ```
+
+<br>
+
