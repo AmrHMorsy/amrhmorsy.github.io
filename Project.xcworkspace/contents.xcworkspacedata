@@ -237,6 +237,9 @@
       <FileRef
          location = "group:announcement_2.md">
       </FileRef>
+      <FileRef
+         location = "group:announcement_3.md">
+      </FileRef>
    </Group>
    <Group
       location = "group:_pages"
@@ -305,7 +308,7 @@
          location = "group:2024-10-28-ReflectionVectorCalculation.md">
       </FileRef>
       <FileRef
-         location = "group:2026-03-29-LightCulling.md">
+         location = "group:LightCulling.md">
       </FileRef>
       <FileRef
          location = "group:2026-03-21-VertexInput.md">
