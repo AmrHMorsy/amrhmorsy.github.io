@@ -1,9 +1,12 @@
 - title: Education
   type: time_table
   contents:
+    - title: Phd Computer Science
+      institution: The American University in Cairo | Cairo, Egypt
+      year: 2028 - 2032
     - title: Msc Computer Science
-      institution: University of Hull | Hull, UK
-      year: 2024 - 2027
+      institution: The American University in Cairo | Cairo, Egypt
+      year: 2024 - 2028
     - title: Bsc Computer Science
       institution: Concordia University | Montréal, Canada
-      year: 2019 - 2024
+      year: 2018 - 2024

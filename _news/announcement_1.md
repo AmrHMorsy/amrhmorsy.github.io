@@ -5,7 +5,7 @@ inline: true
 related_posts: false
 ---
 
-Mr. Mechanic — An educational game. 
+New Beginings — A new educational game. 
 <br>
 *Currently in active development.*
 <br><br>

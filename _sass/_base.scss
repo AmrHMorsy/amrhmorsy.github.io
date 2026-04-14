@@ -104,6 +104,11 @@ mjx-container {
     height: auto;    /* keeps aspect ratio */
 }
 
+.scaled-img100 {
+    width: 100%;      /* or whatever scale you want */
+    height: auto;    /* keeps aspect ratio */
+}
+
 .IndexLink{
   color: var(--global-text-color);
   font-weight: 700;
@@ -1285,3 +1290,32 @@ nav[data-toggle="toc"] {
 
 
 
+.toc {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 500px;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.toc li {
+  margin: 8px 0;
+}
+
+.toc a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.toc-sub {
+  margin-top: 6px;
+  padding-left: 15px;
+}
+
+.toc-sub li {
+  font-size: 14px;
+  margin: 4px 0;
+}
