@@ -308,7 +308,7 @@
          location = "group:2024-10-28-ReflectionVectorCalculation.md">
       </FileRef>
       <FileRef
-         location = "group:LightCulling.md">
+         location = "group:2026-03-29-LightCulling.md">
       </FileRef>
       <FileRef
          location = "group:2026-03-21-VertexInput.md">
@@ -1840,133 +1840,6 @@
       location = "group:assets"
       name = "assets">
       <Group
-         location = "group:video"
-         name = "video">
-         <FileRef
-            location = "group:pexels-engin-akyurt-6069112-960x540-30fps.mp4">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:bibliography"
-         name = "bibliography">
-         <FileRef
-            location = "group:2018-12-22-distill.bib">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:css"
-         name = "css">
-         <FileRef
-            location = "group:bootstrap.min.css">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.css.map">
-         </FileRef>
-         <FileRef
-            location = "group:jupyter.css">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.css">
-         </FileRef>
-         <FileRef
-            location = "group:jupyter-grade3.css">
-         </FileRef>
-         <FileRef
-            location = "group:jekyll-pygments-themes-github.css">
-         </FileRef>
-         <FileRef
-            location = "group:jekyll-pygments-themes-native.css">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap.min.css.map">
-         </FileRef>
-         <FileRef
-            location = "group:main.scss">
-         </FileRef>
-         <FileRef
-            location = "group:academicons.min.css">
-         </FileRef>
-         <FileRef
-            location = "group:jupyter-monokai.css">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap-toc.min.css">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:js"
-         name = "js">
-         <Group
-            location = "group:distillpub"
-            name = "distillpub">
-            <FileRef
-               location = "group:transforms.v2.js">
-            </FileRef>
-            <FileRef
-               location = "group:template.v2.js.map">
-            </FileRef>
-            <FileRef
-               location = "group:overrides.js">
-            </FileRef>
-            <FileRef
-               location = "group:template.v2.js">
-            </FileRef>
-            <FileRef
-               location = "group:transforms.v2.js.map">
-            </FileRef>
-         </Group>
-         <FileRef
-            location = "group:bootstrap-toc.min.js">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap.bundle.min.js.map">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap.bundle.min.js">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.js">
-         </FileRef>
-         <FileRef
-            location = "group:theme.js">
-         </FileRef>
-         <FileRef
-            location = "group:zoom.js">
-         </FileRef>
-         <FileRef
-            location = "group:masonry.js">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.js.map">
-         </FileRef>
-         <FileRef
-            location = "group:copy_code.js">
-         </FileRef>
-         <FileRef
-            location = "group:no_defer.js">
-         </FileRef>
-         <FileRef
-            location = "group:common.js">
-         </FileRef>
-         <FileRef
-            location = "group:dark_mode.js">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:pdf"
-         name = "pdf">
-         <FileRef
-            location = "group:resume.pdf">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:plotly"
-         name = "plotly">
-         <FileRef
-            location = "group:demo.html">
-         </FileRef>
-      </Group>
-      <Group
          location = "group:img"
          name = "img">
          <FileRef
@@ -1978,6 +1851,87 @@
          <Group
             location = "group:Blog"
             name = "Blog">
+            <Group
+               location = "group:VertexInput"
+               name = "VertexInput">
+               <Group
+                  location = "group:Light"
+                  name = "Light">
+                  <FileRef
+                     location = "group:Thumbnail.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:2.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:1.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Dark"
+                  name = "Dark">
+                  <FileRef
+                     location = "group:Thumbnail.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:v.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:2.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:1.png">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:LightCulling"
+               name = "LightCulling">
+               <Group
+                  location = "group:Light"
+                  name = "Light">
+                  <FileRef
+                     location = "group:vec4.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DepthMinMaxTree.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Frustum.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TiledScreen.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:vulkan_simplified_pipeline.svg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:1.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Dark"
+                  name = "Dark">
+                  <FileRef
+                     location = "group:vec4.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DepthMinMaxTree.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Frustum.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TiledScreen.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:vulkan_simplified_pipeline.svg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:1.png">
+                  </FileRef>
+               </Group>
+            </Group>
             <Group
                location = "group:PlanesIn3DSpace"
                name = "PlanesIn3DSpace">
@@ -2086,6 +2040,9 @@
                <FileRef
                   location = "group:PlaneScene.png">
                </FileRef>
+               <FileRef
+                  location = "group:Car.png">
+               </FileRef>
                <Group
                   location = "group:Light"
                   name = "Light">
@@ -2096,6 +2053,9 @@
                      location = "group:1.png">
                   </FileRef>
                </Group>
+               <FileRef
+                  location = "group:b.png">
+               </FileRef>
                <FileRef
                   location = "group:CakeScene.png">
                </FileRef>
@@ -2112,6 +2072,12 @@
                      location = "group:1.png">
                   </FileRef>
                </Group>
+               <FileRef
+                  location = "group:CarScene.png">
+               </FileRef>
+               <FileRef
+                  location = "group:TruckScene.png">
+               </FileRef>
             </Group>
             <Group
                location = "group:PoissonDiskSampling"
@@ -2290,6 +2256,133 @@
                </FileRef>
             </Group>
          </Group>
+      </Group>
+      <Group
+         location = "group:video"
+         name = "video">
+         <FileRef
+            location = "group:pexels-engin-akyurt-6069112-960x540-30fps.mp4">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:bibliography"
+         name = "bibliography">
+         <FileRef
+            location = "group:2018-12-22-distill.bib">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:css"
+         name = "css">
+         <FileRef
+            location = "group:bootstrap.min.css">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.css.map">
+         </FileRef>
+         <FileRef
+            location = "group:jupyter.css">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.css">
+         </FileRef>
+         <FileRef
+            location = "group:jupyter-grade3.css">
+         </FileRef>
+         <FileRef
+            location = "group:jekyll-pygments-themes-github.css">
+         </FileRef>
+         <FileRef
+            location = "group:jekyll-pygments-themes-native.css">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap.min.css.map">
+         </FileRef>
+         <FileRef
+            location = "group:main.scss">
+         </FileRef>
+         <FileRef
+            location = "group:academicons.min.css">
+         </FileRef>
+         <FileRef
+            location = "group:jupyter-monokai.css">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap-toc.min.css">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:js"
+         name = "js">
+         <Group
+            location = "group:distillpub"
+            name = "distillpub">
+            <FileRef
+               location = "group:transforms.v2.js">
+            </FileRef>
+            <FileRef
+               location = "group:template.v2.js.map">
+            </FileRef>
+            <FileRef
+               location = "group:overrides.js">
+            </FileRef>
+            <FileRef
+               location = "group:template.v2.js">
+            </FileRef>
+            <FileRef
+               location = "group:transforms.v2.js.map">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:bootstrap-toc.min.js">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap.bundle.min.js.map">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap.bundle.min.js">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.js">
+         </FileRef>
+         <FileRef
+            location = "group:theme.js">
+         </FileRef>
+         <FileRef
+            location = "group:zoom.js">
+         </FileRef>
+         <FileRef
+            location = "group:masonry.js">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.js.map">
+         </FileRef>
+         <FileRef
+            location = "group:copy_code.js">
+         </FileRef>
+         <FileRef
+            location = "group:no_defer.js">
+         </FileRef>
+         <FileRef
+            location = "group:common.js">
+         </FileRef>
+         <FileRef
+            location = "group:dark_mode.js">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:pdf"
+         name = "pdf">
+         <FileRef
+            location = "group:resume.pdf">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:plotly"
+         name = "plotly">
+         <FileRef
+            location = "group:demo.html">
+         </FileRef>
       </Group>
       <Group
          location = "group:audio"
