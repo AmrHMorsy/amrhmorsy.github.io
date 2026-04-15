@@ -51,6 +51,8 @@ This is the typical pipeline that exists in most real-time graphics applications
 <br>
 Light culling is an optimization technique in rendering. The idea of light culling is that at certain great distances from the light source, the light contribution from that light source becomes so small, because of <b>attentuation</b>, that ignoring the light source completely in the fragment shading computation will not affect the physical accuracy of the final scene by a great deal, and, in return, save us significant computational cost.
 </div>
+<br>
+<br>
 <div class="col-md-7">
     <figure class="col-md-12 text-center theme-img repo-img-light">
         {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/vulkan_simplified_pipeline.svg" %}
@@ -142,7 +144,7 @@ $$
 <h3 id="LightBoundingSphere"><b>Light Bounding Sphere</b></h3>
 <br>
 
-Let $$B_k$$ be the bounding sphere of the light source $$L_k$$. The center of $$B_k$$ is the light position, and the radius of $$B_k$$ is the distance at which the maximum component of the light intensity $$I_k$$ equals a user-defined scalar value, let's call it $$I_{k, min}$$. This assumes the use of **inverse square law** to model the attentuation of the light source, which states that the light intensity $$I$$ is inversely proportional to the square of the distance $$d$$ from the light source. That is, the intensity of the light source at distance $$d$$; call it $$I_d$$, is
+Let $$B_k$$ be the bounding sphere of the light source $$L_k$$. The center $$c_k = (c_{kx}, c_{ky}, c_{kz})$$ of $$B_k$$ is the light position, and the radius $$r_k$$ of $$B_k$$ is the distance at which the maximum component of the light intensity $$I_k$$ equals a user-defined scalar value, let's call it $$I_{k, min}$$. This assumes the use of **inverse square law** to model the attentuation of the light source, which states that the light intensity $$I$$ is inversely proportional to the square of the distance $$d$$ from the light source. That is, the intensity of the light source at distance $$d$$; call it $$I_d$$, is
 
 $$
 I_d = \frac{I}{d^2}
@@ -500,19 +502,13 @@ $$
 <h4 id="PointInsideFrustum"><b>Point-Frustum Test</b></h4>
 <br>
 
-Consider an arbitrary plane $$P$$ and a point $$q$$. We know that if 
+Consider an arbitrary plane $$P$$ and a point $$q$$. We know that the equation
 
 $$
-P \cdot q \geq 0
+P \cdot q = d
 $$
 
-then $$q$$ is on the side of the plane to where normal vector of the plane points; or in other words, $$q$$ is on the **positive** side of the plane. On the other hand, if 
-
-$$
-P \cdot q \leq 0
-$$
-
-then $$q$$ is on the side of the plane opposite to where the normal vector of the plane points; or in other words, $$q$$ is on the **negative** side of the plane.
+gives the signed distance $$d$$ between the point $$q$$ and the plane $$P$$. If $$d \geq 0$$, then $$q$$ is on the side of the plane to where normal vector of the plane points; or in other words, $$q$$ is on the **positive** side of the plane. On the other hand, if $$d \leq 0$$, then $$q$$ is on the side of the plane opposite to where the normal vector of the plane points; or in other words, $$q$$ is on the **negative** side of the plane.
 
 <br>
 
@@ -549,6 +545,7 @@ $$
 <br>
 To simplify the test of whether the point $$q_{view}$$ is inside the frustum $$F_{ij}$$ or not, we are going to flip the normal of the right plane $$\pi_{ij}^R$$ and the top plane $$\pi_{ij}^T$$, so that they are in the opposite directions to the normal of the left plane $$\pi_{ij}^L$$ and bottom plane $$\pi_{ij}^B$$ respectively. Hence, the equations of the right plane and the top plane becomes: 
 
+<br>
 
 $$
 \pi_{ij}^R: \; (x^{ij}_{ndc, max} \cdot projectionMatrix[3]) - projectionMatrix[0]
@@ -593,7 +590,7 @@ $$
 <br>
 <br>
 
-Below are the equations of for the **left**, **right**, **top**, and **bottom** planes of the frustum of the tile. 
+Below are the **updated** equations of for the **left**, **right**, **top**, and **bottom** planes of the frustum of the tile. 
 
 $$
 \pi_{ij}^L: \; projectionMatrix[0] - x^{ij}_{ndc, min} \cdot projectionMatrix[3]
@@ -858,7 +855,7 @@ Below is the code for a function that converts a depth value from window-space t
 float LinearizeDepth(float depthWindowSpace, float n, float f)
 {
        float depthNDC = depthWindowSpace * 2.0 - 1.0; // [-1, 1]
-       return (2.0 * n * f) / (f + n - depthNDC * (f - n));
+       return ((f-n) * (depthNDC + ((f+n) / (f-n)))) / 2;
 }
 ```
 
@@ -979,9 +976,7 @@ float LinearizeDepth(float depthWindowSpace, float n, float f)
 <hr>
 <br>
 
-Below is a snippet of the compute shader code that computes the minimum and maximum depth for each tile.
-
-<br>
+Below is a snippet of the compute shader code that linearizes the depth values sampled from the depth buffer, and computes the minimum and maximum depth for each tile.
 
 ```cpp
 shared vec2 threadDepths[numThreadsPerWorkGroup];
@@ -1023,13 +1018,12 @@ vec2 ComputeMinMaxDepth()
 
 <br>
 <br>
-<br>
 <h3 id = "FrustumLightIntersection"><b>Frustum-Sphere Intersection Test</b></h3>
 <br>
 
-Consider the frustum $$F_{ij}$$ of the tile $$T_{ij}$$, and the bounding sphere $$B_k$$ of the light source $$L_k$$, where $$r_k$$ and $$c_k = (c_{kx}, c_{ky}, c_{kz})$$ are the radius and the center of the bounding sphere respectively. We want to test whether $$B_k$$ intersects the frustum $$F_{ij}$$ or not. 
+Consider the frustum $$F_{ij}$$ of the tile $$T_{ij}$$, and the bounding sphere $$B_k$$ of the light source $$L_k$$, where $$r_k$$ and $$c_k = (c_{kx}, c_{ky}, c_{kz})$$ are the radius and the center of the bounding sphere respectively. We want to test the intersection between $$B_k$$ and $$F_{ij}$$.
 
-We will start by checking whether $$B_k$$ is between the near and far plane of the frustum. Consider the minimum and maximum depth $$d_{k, min}$$ and $$d_{k, max}$$ on the sphere, where 
+Let $$n$$ and $$f$$ be the near and far plane of the frustum $$F_{ij}$$, and $$d_{k, min}$$ and $$d_{k, max}$$ be the minimum and maximum depth of the bounding sphere $$B_k$$ respectively, where 
 
 $$
 d_{k, min} = c_{kz} - r_k
@@ -1039,17 +1033,17 @@ $$
 d_{k, max} = c_{kz} + r_k
 $$
 
-If the minimum depth of the sphere is greater than the far plane, then it means the entire sphere itself is beyond the far plane, and hence, the sphere is not intersecting the frustum. Similarly, if the maximum depth of the sphere is less than the near plane, then it means the entire sphere itself is beyond the near plane, and thus, the sphere is not intersecting the frustum. Otherwise, the sphere $$B_k$$ must be within the near and far plane of the frustum $$F_{ij}$$. 
+If $$d_{k, min} > f$$, then the entire sphere $$B_k$$ is beyond the far plane, and hence, $$B_k$$ is not intersecting with $$F_{ij}$$. Similarly, if $$d_{k, max} < n$$, then the entire sphere $$B_k$$ is beyond the near plane, and thus, $$B_k$$ is not intersecting with $$F_{ij}$$.
 
-<br>
-
-Next, we need to check whether the bounding sphere $$B_k$$ is within the left, right, bottom and top planes of the frustum. As discussed before, the following equation
+Next, we need to check whether the bounding sphere $$B_k$$ is within the left, right, bottom and top planes of the frustum. We discussed that the equation
 
 $$
 P \cdot q = d
 $$
 
-gives the signed distance $$d$$ between the plane $$P$$ and the point $$q$$. We also discussed that the point $$q_{view}$$ is inside the frustum $$F_{ij}$$ if all of the following is true: 
+gives the signed distance $$d$$ between the plane $$P$$ and the point $$q$$, where if $$d \geq 0$$, then $$q$$ must be on the positive side of the plane, and if $$d \leq 0$$, then $$q$$ must be on the negative side of the plane. 
+
+We also discussed that a point $$q_{view}$$ is inside the frustum $$F_{ij}$$ if all of the following is true: 
 
 $$
 \pi_{ij}^L \cdot q_{view} \geq 0
@@ -1067,7 +1061,10 @@ $$
 \pi_{ij}^T \cdot q_{view} \geq 0
 $$
 
-To check whether the sphere $$B_k$$ is inside the frustum $$F_{ij}$$ or not, we need to compute the signed distance between the center $$c_k$$ and each plane of the frustum. If that signed distance is negative and greater than the radius $$r_k$$ with at least one plane, then the sphere must be completely outside the frustum.
+
+To check whether the sphere $$B_k$$ is inside the frustum $$F_{ij}$$ or not, we need to compute the signed distance $$d$$ between the center $$c_k$$ and each plane of the frustum. 
+
+If there exist at least one plane $$\pi_{ij}$$ in the frustum $$F_{ij}$$ in which the distance $$d$$ between $$c_k$$ and $$\pi_{ij}$$ is negative and greater than the radius $$r_k$$, then the bounding sphere $$B_k$$ must be completely outside the frustum $$F_{ij}$$. Otherwise, the bounding sphere $$B_k$$ is intersecting or inside the frustum $$F_{ij}$$.
 
 <br>
 
@@ -1103,7 +1100,7 @@ bool IsLightVisible(vec4 lightBoundingSphere, float minDepth, float maxDepth, ui
 <hr>
 <br>
 
-Below is the code for the compute shader that implements naive light culling algorithm, assuming the resolution of each tile is $$16 \times 16$$, and hence, the use of a grid of $$16 \times 16$$ threads in each workgroup.
+Below is the code for the complete compute shader that implements naive light culling algorithm, assuming the resolution of each tile is $$16 \times 16$$, and hence, the use of a grid of $$16 \times 16$$ threads in each workgroup.
 
 ```cpp
 #version 450
@@ -1212,7 +1209,7 @@ void main()
 <br>
 <br>
 
-Below is a snippet code of the fragment shader of the main shading pass that determines the tile the fragment resides in, and in turn, the list of light indices to traverse to compute lighting. 
+Below is a snippet code of the fragment shader of the main shading pass that computes the tile the fragment resides in, and in turn, determines the list of light indices to traverse to compute lighting. 
  
 ```cpp
 uvec2 tileUV = uvec2(gl_FragCoord.xy) / tileResolution;
@@ -1229,13 +1226,41 @@ uint endingIndex = startingIndex + lightCount;
 <br>
 <br>
 
+<div class="row align-items-center mt-3">
+    <div class="col-md-6">
+        <figure class="col-md-12 text-center theme-img repo-img-light">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneColor.png" class="scaled-img100"%}
+        <figcaption>Car scene</figcaption>
+        </figure>
+        <figure class="col-md-12 text-center theme-img repo-img-dark">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneColor.png" class="scaled-img100"%}
+        <figcaption>Car scene</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-6">
+        <figure class="col-md-12 text-center theme-img repo-img-light">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneLightCulling.png" class="scaled-img100"%}
+        <figcaption>Car scene heat map, where minimum intensity of each light source is \(\frac{I}{10}\)</figcaption>
+        </figure>
+        <figure class="col-md-12 text-center theme-img repo-img-dark">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneLightCulling.png" class="scaled-img100"%}
+        <figcaption>Car scene heat map, where minimum intensity of each light source is \(\frac{I}{10}\)</figcaption>
+        </figure>
+    </div>
+</div>
+
+<br>
+<br>
+
 <br>
 <h3 id = "DepthDiscont"><b>Depth Discontinuities</b></h3>
 <br>
 
 One of the main problems of the **naive** light culling algorithm is a phenomena called **Depth Discontinuities**. 
 
-Consider an arbitrary scene that is rendered using an engine that is implementing a naive light culling algorithm. If a tile does not have any geometry triangles in it, the computed minimum and maximum depth of the tile will be zero, and hence, there will be no intersections between light bounding spheres and the frustum of that tile. However, consider a tile that contains triangle really close to the camera, and far away in the distance, with no geometry at all in between. The computed minimum and maximum depth of that tile will be huge, resulting in many false-positive intersections with light's bounding spheres, and thus, defeating the purpose of light culling. 
+Consider an arbitrary scene that is rendered using an engine that is implementing a naive light culling algorithm. If a tile does not have any geometry triangles in it, the computed minimum and maximum depth of the tile will be zero, and hence, there will be no intersections between light bounding spheres and the frustum of that tile. 
+
+However, consider a tile that contains triangles really close to the near plane, and triangles really close to the far plane, with no triangles at in the region in between. The computed minimum and maximum depth of that tile will be huge, resulting in many false-positive intersections with light's bounding spheres, and thus, defeating the purpose of light culling. 
 
 This scene example is not an extreme case, rather it is fairly common. Examples of these scenes are: 
 
@@ -1251,17 +1276,46 @@ The solution to this problem is to use an algorithm called **$$2.5D$$ light cull
 
 <br>
 
+<div class="row align-items-center mt-3">
+    <div class="col-md-6">
+        <figure class="col-md-12 text-center theme-img repo-img-light">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CakeScene.png" class="scaled-img100"%}
+        <figcaption>Cake scene</figcaption>
+        </figure>
+        <figure class="col-md-12 text-center theme-img repo-img-dark">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CakeScene.png" class="scaled-img100"%}
+        <figcaption>Cake scene</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-6">
+        <figure class="col-md-12 text-center theme-img repo-img-light">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CakeSceneHeatMap.png" class="scaled-img100"%}
+        <figcaption>Cake scene heat map, where minimum intensity of each light source is \(\frac{I}{2}\)</figcaption>
+        </figure>
+        <figure class="col-md-12 text-center theme-img repo-img-dark">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CakeSceneHeatMap.png" class="scaled-img100"%}
+        <figcaption>Cake scene heat map, where minimum intensity of each light source is \(\frac{I}{2}\)</figcaption>
+        </figure>
+    </div>
+</div>
+
+<br>
+
 <br>
 <h3 id = "25DCullingAlgorithm"><b>\(2.5D\) Light Culling Algorithm</b></h3>
 <br>
 
-The idea of the $$2.5D$$ light culling algorithm is to split the depth range of the tile into $$n$$ cells. Each cell is independent, and has its own array of light indices $$V_{ij}$$, and its own light count $$C_{ij}$$. For each pixel $$P_{gk}$$ within the tile $$T_{ij}$$, we will compute the index of the cell it resides in. The cells that contains pixels will be marked as **occupied**, and those that do not will be marked as **empty**. 
+The idea of the $$2.5D$$ light culling algorithm is to split the depth range of the tile into $$n$$ cells. Each cell is independent, and has its own array of light indices $$V_{ij}$$, and its own light count $$C_{ij}$$. 
 
-Then, while checking for intersection between the light bounding sphere and the frustum of the tile, we will compute the minimum and maximum cell indices the light bounding sphere occupies. If all the cells in that range are empty, then the light bounding sphere will be refused to be appended to $$V_{ij}$$, since there is no geometry at all it affects. If there is at least one cell in that range of cells that is occupied, then light bounding sphere is intersecting the frustum.
+For each pixel $$P_{gk}$$ within the tile $$T_{ij}$$, we will sample its depth value from the depth buffer, and accordingly, compute the index of the depth cell it resides. The cells that contains pixels will be marked as **occupied**, and those that do not will be marked as **empty**. 
+
+Then, while checking for intersection between the light bounding sphere and the frustum of the tile, we will compute the minimum and maximum cell indices the light bounding sphere occupies. If all the cells in that range are empty, then the light bounding sphere will not be appended to $$V_{ij}$$, even if it intersects the frustum, since there is no geometry in those regions in the first place to be affected by lighting. If there is at least one cell in that range of cells that is occupied, then light bounding sphere is appended to the array $$V_{ij}$$.
+
+The depth range can be sliced either linearly, in which all slices are equal, logarithmically, in which cells get bigger as it approaches the far plane. Logarithmic slicing is preferred, since perspective projection causes depth values near the camera to be in high resolution than those far away. Having tiny slices near the camera allows finer seperation of geometry into seperate slices. 
 
 <br>
 
-The index of the cell within the depth range can be computed using the following function: 
+Below is the code for the function that computes the cell slice of the pixel:
 
 ```cpp
 uint ComputeCellIndex(float depth, float minDepth, float maxDepth)
@@ -1275,13 +1329,23 @@ uint ComputeCellIndex(float depth, float minDepth, float maxDepth)
 
 <br>
 
-This function uses logarithmic mapping in which cells closer to the camera are smaller than cells far away from the camera. This is because depth resolution near the camera is higher than those far away. 
-
 A typical way to represent cells in the depth range is the use of the bits within a variable. That is, each bit within the variable represents a cell in the depth range. If the bit is $$0$$, then that cell is empty. Otherwise, the cell is occupied. 
 
 <br>
 
-The bits of the variable can be filled in parallel using the following code: 
+<figure class="col-md-12 text-center theme-img repo-img-light">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/DepthSlicing.png" class="scaled-img70"%}
+<figcaption>Depth Slicing</figcaption>
+</figure>
+<figure class="col-md-12 text-center theme-img repo-img-dark">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/DepthSlicing.png" class="scaled-img70"%}
+<figcaption>Depth Slicing</figcaption>
+</figure>
+
+
+<br>
+
+The bits of the unsigned integer variable can be filled in parallel using the following code: 
 
 ```cpp
 uvec2 textureCoordinates = (gl_WorkGroupID.xy * tileResolution) + gl_LocalInvocationID.xy;
@@ -1293,8 +1357,35 @@ atomicOr(tilesGeometryBitMask[tileIndex], 1u << threadCellIndex);
 > The naive light culling algorithm is considered a case of the 2.5D culling algorithm, in which $$n = 1$$. Another light culling algorithm called **HalfZ** is also considered another case in which $$n = 2$$ 
 
 <br>
+<br>
+<div class="row align-items-center mt-3">
+    <div class="col-md-6">
+        <figure class="col-md-12 text-center theme-img repo-img-light">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/ComputerScene.png" class="scaled-img100"%}
+        <figcaption>Desk scene</figcaption>
+        </figure>
+        <figure class="col-md-12 text-center theme-img repo-img-dark">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/ComputerScene.png" class="scaled-img100"%}
+        <figcaption>Desk scene</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-6">
+        <figure class="col-md-12 text-center theme-img repo-img-light">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/ComputerSceneHeatMap.png" class="scaled-img100"%}
+        <figcaption>Desk scene heat map, where minimum intensity of each light source is \(\frac{9 \, I}{10}\)</figcaption>
+        </figure>
+        <figure class="col-md-12 text-center theme-img repo-img-dark">
+            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/ComputerSceneHeatMap.png" class="scaled-img100"%}
+        <figcaption>Desk scene heat map, where minimum intensity of each light source is \(\frac{9 \, I}{10}\)</figcaption>
+        </figure>
+    </div>
+</div>
 
-Below is the code for the compute shader that implements 2.5D light culling algorithm, assuming the number of cells per tile is 32, and the resolution of each tile is $$16 \times 16$$, and hence, the use of a grid of $$16 \times 16$$ threads in each workgroup.
+<br>
+<hr>
+<br>
+
+Below is the code for the complete compute shader that implements 2.5D light culling algorithm, assuming the number of cells per tile is 32, and the resolution of each tile is $$16 \times 16$$, and hence, the use of a grid of $$16 \times 16$$ threads in each workgroup.
 
 ```cpp
 #version 450
@@ -1454,6 +1545,8 @@ void main()
 ```
 
 <br>
+<br>
+
 Below is a snippet code of the fragment shader of the main shading pass that determines the tile the fragment resides in, and in turn, the list of light indices to traverse to compute lighting. 
  
 ```cpp
@@ -1469,78 +1562,6 @@ uint endingIndex = startingIndex + lightCount;
 ```
 
 <br>
-
-<div class="row align-items-center mt-3">
-    <div class="col-md-6">
-        <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneColor.png" class="scaled-img100"%}
-        <figcaption>Car scene</figcaption>
-        </figure>
-        <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneColor.png" class="scaled-img100"%}
-        <figcaption>Car scene</figcaption>
-        </figure>
-    </div>
-    <div class="col-md-6">
-        <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneLightCulling.png" class="scaled-img100"%}
-        <figcaption>Car scene heat map, where minimum intensity of each light source is \(\frac{I}{10}\)</figcaption>
-        </figure>
-        <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneLightCulling.png" class="scaled-img100"%}
-        <figcaption>Car scene heat map, where minimum intensity of each light source is \(\frac{I}{10}\)</figcaption>
-        </figure>
-    </div>
-</div>
-
-<br>
-
-<div class="row align-items-center mt-3">
-    <div class="col-md-6">
-        <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CakeScene.png" class="scaled-img100"%}
-        <figcaption>Car scene</figcaption>
-        </figure>
-        <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CakeScene.png" class="scaled-img100"%}
-        <figcaption>Car scene</figcaption>
-        </figure>
-    </div>
-    <div class="col-md-6">
-        <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CakeSceneHeatMap.png" class="scaled-img100"%}
-        <figcaption>Cake scene heat map, where minimum intensity of each light source is \(\frac{I}{2}\)</figcaption>
-        </figure>
-        <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CakeSceneHeatMap.png" class="scaled-img100"%}
-        <figcaption>Cake scene heat map, where minimum intensity of each light source is \(\frac{I}{2}\)</figcaption>
-        </figure>
-    </div>
-</div>
-
-<div class="row align-items-center mt-3">
-    <div class="col-md-6">
-        <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/ComputerScene.png" class="scaled-img100"%}
-        <figcaption>Desk scene</figcaption>
-        </figure>
-        <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/ComputerScene.png" class="scaled-img100"%}
-        <figcaption>Desk scene</figcaption>
-        </figure>
-    </div>
-    <div class="col-md-6">
-        <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/ComputerSceneHeatMap.png" class="scaled-img100"%}
-        <figcaption>Desk scene heat map, where minimum intensity of each light source is \(\frac{9 \, I}{10}\)</figcaption>
-        </figure>
-        <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/ComputerSceneHeatMap.png" class="scaled-img100"%}
-        <figcaption>Desk scene heat map, where minimum intensity of each light source is \(\frac{9 \, I}{10}\)</figcaption>
-        </figure>
-    </div>
-</div>
-
 <br>
 
 <div class="row align-items-center mt-3">
@@ -1566,6 +1587,20 @@ uint endingIndex = startingIndex + lightCount;
     </div>
 </div>
 
+<br>
+
+<figure class="col-md-12 text-center theme-img repo-img-light">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/Graph.png" class="scaled-img50" %}
+<figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
+<figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
+</figure>
+<figure class="col-md-12 text-center theme-img repo-img-dark">
+    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/Graph.png" class="scaled-img50" %}
+<figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
+<figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
+</figure>
+
+<br>
 <br>
 
 ***
@@ -1618,11 +1653,11 @@ The package is for sale on my gumroad page. It includes:
     <li>The 3D models of all the scenes included in the demo</li>
 </ul>
 <br>
-<b><i>Only available on macOS</i></b>
+<b><i>Only available on macOS Silicon</i></b>
 <br>
 <br>
 <br>
-<b><a href = "https://amrmorsy.gumroad.com">Buy Now</a></b>
+<b><a href = "https://amrmorsy.gumroad.com/l/LightCullingDemo">Buy Now</a></b>
 </blockquote>
 <br>
 <hr>
