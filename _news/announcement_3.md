@@ -11,7 +11,7 @@ Vejaler Engine — A game engine built using the Vulkan API
 <br><br>
 
 <img id="hero-image"
-     src="/assets/img/Blog/CompleteVulkanTutorial/SpaceShipScene.png"
+     src="assets/img/Blog/CompleteVulkanTutorial/CakeScene.png"
      class="scaled-img70 img-fluid">
 
 <style>

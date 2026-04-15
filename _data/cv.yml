@@ -1,12 +1,10 @@
 - title: Education
   type: time_table
   contents:
-    - title: Phd Computer Science
-      institution: The American University in Cairo | Cairo, Egypt
-      year: 2028 - 2032
-    - title: Msc Computer Science
+    - title: MSc Computer Science
       institution: The American University in Cairo | Cairo, Egypt
       year: 2024 - 2028
-    - title: Bsc Computer Science
+    - title: BSc Computer Science
       institution: Concordia University | Montréal, Canada
       year: 2018 - 2024
+

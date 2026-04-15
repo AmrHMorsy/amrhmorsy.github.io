@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Automating Vertex Input Setup in Vulkan Using Shader Reflection
-date: 2026-03-21 09:00:00
+date: 2026-03-15 09:00:00
 description:
 tags:
 categories:
