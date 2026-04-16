@@ -108,6 +108,10 @@ mjx-container {
     width: 100%;      /* or whatever scale you want */
     height: auto;    /* keeps aspect ratio */
 }
+.scaled-img120 {
+    width: 120%;      /* or whatever scale you want */
+    height: auto;    /* keeps aspect ratio */
+}
 
 .IndexLink{
   color: var(--global-text-color);

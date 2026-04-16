@@ -114,6 +114,14 @@
             {% endif %}
 
 
+            {%- if site.gumroadUserName -%}
+            <a href="https://{{ site.gumroadUserName }}.gumroad.com" title="Gumroad">
+            <img src="{{ 'assets/img/gumroad-1.svg' | relative_url }}"
+                     alt="Gumroad"
+                     style="height: 50px; position: relative; top: -3px;">            </a>
+            {%- endif %}
+
+
             {%- if site.rss_icon -%}
             <a href="{{ site.baseurl }}/feed.xml" title="RSS Feed"><i class="fa-solid fa-square-rss"></i></a>
             {% endif %}
