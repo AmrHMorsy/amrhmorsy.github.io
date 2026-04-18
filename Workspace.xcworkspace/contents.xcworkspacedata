@@ -234,6 +234,12 @@
       <FileRef
          location = "group:announcement_1.md">
       </FileRef>
+      <FileRef
+         location = "group:announcement_3.md">
+      </FileRef>
+      <FileRef
+         location = "group:announcement_2.md">
+      </FileRef>
    </Group>
    <Group
       location = "group:_pages"
@@ -257,13 +263,13 @@
          location = "group:Publications.md">
       </FileRef>
       <FileRef
-         location = "group:about.md">
+         location = "group:Reviews.md">
       </FileRef>
       <FileRef
          location = "group:HireMe.md">
       </FileRef>
       <FileRef
-         location = "group:Reviews.md">
+         location = "group:about.md">
       </FileRef>
    </Group>
    <Group
@@ -291,10 +297,16 @@
       <FileRef
          location = "group:Vejaler.md">
       </FileRef>
+      <FileRef
+         location = "group:LightCullingDemo.md">
+      </FileRef>
    </Group>
    <Group
       location = "group:_posts"
       name = "_posts">
+      <FileRef
+         location = "group:2026-04-15-LightCulling.md">
+      </FileRef>
       <FileRef
          location = "group:2026-01-05-PoissonDiskSampling.md">
       </FileRef>
@@ -305,12 +317,6 @@
          location = "group:2024-10-28-ReflectionVectorCalculation.md">
       </FileRef>
       <FileRef
-         location = "group:2026-04-15-LightCulling.md">
-      </FileRef>
-      <FileRef
-         location = "group:2026-03-15-VertexInput.md">
-      </FileRef>
-      <FileRef
          location = "group:2025-12-26-Planesin3DSpace.md">
       </FileRef>
       <FileRef
@@ -318,6 +324,9 @@
       </FileRef>
       <FileRef
          location = "group:2025-02-09-BarycentricCoordinates.md">
+      </FileRef>
+      <FileRef
+         location = "group:2026-03-15-VertexInput.md">
       </FileRef>
       <FileRef
          location = "group:2024-10-31-RefractionVectorCalculation.md">
@@ -420,26 +429,12 @@
       <FileRef
          location = "group:feed.xml">
       </FileRef>
-      <Group
-         location = "group:tutoring"
-         name = "tutoring">
-         <FileRef
-            location = "group:index.html">
-         </FileRef>
-      </Group>
       <FileRef
          location = "group:index.html">
       </FileRef>
       <FileRef
          location = "group:LICENSE">
       </FileRef>
-      <Group
-         location = "group:freelancing"
-         name = "freelancing">
-         <FileRef
-            location = "group:index.html">
-         </FileRef>
-      </Group>
       <FileRef
          location = "group:google24efc76e55f68afb.html">
       </FileRef>
@@ -449,13 +444,6 @@
       <Group
          location = "group:publications"
          name = "publications">
-         <FileRef
-            location = "group:index.html">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:gallery"
-         name = "gallery">
          <FileRef
             location = "group:index.html">
          </FileRef>
@@ -538,6 +526,13 @@
          <Group
             location = "group:2026"
             name = "2026">
+            <Group
+               location = "group:VertexInput"
+               name = "VertexInput">
+               <FileRef
+                  location = "group:index.html">
+               </FileRef>
+            </Group>
             <FileRef
                location = "group:index.html">
             </FileRef>
@@ -573,6 +568,20 @@
                location = "group:index.html">
             </FileRef>
          </Group>
+         <Group
+            location = "group:announcement_3"
+            name = "announcement_3">
+            <FileRef
+               location = "group:index.html">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:announcement_2"
+            name = "announcement_2">
+            <FileRef
+               location = "group:index.html">
+            </FileRef>
+         </Group>
       </Group>
       <Group
          location = "group:portfolio"
@@ -580,6 +589,13 @@
          <FileRef
             location = "group:index.html">
          </FileRef>
+         <Group
+            location = "group:LightCullingDemo"
+            name = "LightCullingDemo">
+            <FileRef
+               location = "group:index.html">
+            </FileRef>
+         </Group>
          <Group
             location = "group:Vejaler"
             name = "Vejaler">
@@ -594,6 +610,9 @@
       <FileRef
          location = "group:docker-compose.yml">
       </FileRef>
+      <FileRef
+         location = "group:Workspace.xcworkspace">
+      </FileRef>
       <Group
          location = "group:cv"
          name = "cv">
@@ -604,9 +623,13 @@
       <FileRef
          location = "group:robots.txt">
       </FileRef>
-      <FileRef
-         location = "group:Project.xcworkspace">
-      </FileRef>
+      <Group
+         location = "group:HireMe"
+         name = "HireMe">
+         <FileRef
+            location = "group:index.html">
+         </FileRef>
+      </Group>
       <Group
          location = "group:assets"
          name = "assets">
@@ -761,9 +784,534 @@
             <FileRef
                location = "group:Logo-1400.webp">
             </FileRef>
+            <FileRef
+               location = "group:prof_pic-480.webp">
+            </FileRef>
             <Group
                location = "group:Blog"
                name = "Blog">
+               <Group
+                  location = "group:VertexInput"
+                  name = "VertexInput">
+                  <Group
+                     location = "group:Light"
+                     name = "Light">
+                     <FileRef
+                        location = "group:Thumbnail-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2-800.webp">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Dark"
+                     name = "Dark">
+                     <FileRef
+                        location = "group:v-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:v-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:v-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:v.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:2-800.webp">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:LightCulling"
+                  name = "LightCulling">
+                  <Group
+                     location = "group:Light"
+                     name = "Light">
+                     <FileRef
+                        location = "group:CarSceneLightCulling-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneLightCulling-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneLightCulling.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneLightCulling-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vulkan_simplified_pipeline.svg">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4-800.webp">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Dark"
+                     name = "Dark">
+                     <FileRef
+                        location = "group:CarSceneLightCulling-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneLightCulling-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneLightCulling.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneLightCulling-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthMinMaxTree-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Thumbnail.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:DepthSlicing-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:TiledScreen-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipScene.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:SpaceshipSceneHeatMap-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerSceneHeatMap.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:ComputerScene-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vulkan_simplified_pipeline.svg">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneColor-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:graph-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Frustum-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeSceneHeatMap-800.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CarSceneDepth-480.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:CakeScene-1400.webp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:1.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:vec4-800.webp">
+                     </FileRef>
+                  </Group>
+               </Group>
                <Group
                   location = "group:PlanesIn3DSpace"
                   name = "PlanesIn3DSpace">
@@ -1086,6 +1634,15 @@
                   location = "group:CompleteVulkanTutorial"
                   name = "CompleteVulkanTutorial">
                   <FileRef
+                     location = "group:Car-800.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarScene-480.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:b-800.webp">
+                  </FileRef>
+                  <FileRef
                      location = "group:PlaneScene.png">
                   </FileRef>
                   <FileRef
@@ -1101,7 +1658,13 @@
                      location = "group:PlaneScene-480.webp">
                   </FileRef>
                   <FileRef
+                     location = "group:TruckScene-480.webp">
+                  </FileRef>
+                  <FileRef
                      location = "group:CakeScene-800.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarScene-1400.webp">
                   </FileRef>
                   <FileRef
                      location = "group:PlaneScene-1400.webp">
@@ -1111,6 +1674,12 @@
                   </FileRef>
                   <FileRef
                      location = "group:PlaneScene-800.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Car.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TruckScene-800.webp">
                   </FileRef>
                   <Group
                      location = "group:Light"
@@ -1141,7 +1710,16 @@
                      </FileRef>
                   </Group>
                   <FileRef
+                     location = "group:Car-480.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:b.png">
+                  </FileRef>
+                  <FileRef
                      location = "group:CakeScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TruckScene-1400.webp">
                   </FileRef>
                   <FileRef
                      location = "group:SpaceShipScene.png">
@@ -1174,6 +1752,24 @@
                         location = "group:1.png">
                      </FileRef>
                   </Group>
+                  <FileRef
+                     location = "group:CarScene-800.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:b-480.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:b-1400.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Car-1400.webp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TruckScene.png">
+                  </FileRef>
                   <FileRef
                      location = "group:CakeScene-1400.webp">
                   </FileRef>
@@ -1720,10 +2316,140 @@
                </Group>
             </Group>
             <FileRef
-               location = "group:apple-touch-icon-480.webp">
+               location = "group:Gumroad--Streamline-Simple-Icons.svg">
             </FileRef>
             <FileRef
+               location = "group:apple-touch-icon-480.webp">
+            </FileRef>
+            <Group
+               location = "group:Logo"
+               name = "Logo">
+               <FileRef
+                  location = "group:UnityLight-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:UnrealDark.png">
+               </FileRef>
+               <FileRef
+                  location = "group:Opengl-logo.svg-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:Opengl-logo.svg-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:2187520-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:UnrealDark-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:34-340100_unity-logo-png-white-transparent-png.png">
+               </FileRef>
+               <FileRef
+                  location = "group:UnityDark.svg-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:UnityLight.png">
+               </FileRef>
+               <FileRef
+                  location = "group:ISO_C++_Logo.svg.png">
+               </FileRef>
+               <FileRef
+                  location = "group:UnityLight-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:UnityDark.svg-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:Metal_4.png">
+               </FileRef>
+               <FileRef
+                  location = "group:34-340100_unity-logo-png-white-transparent-png-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:WebGL_Logo.svg-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:ISO_C++_Logo.svg-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:WebGL_Logo.svg-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:34-340100_unity-logo-png-white-transparent-png-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:Metal_4-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:Metal_4-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:DirectX2.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:UnityLight-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:UnityDark.svg-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:34-340100_unity-logo-png-white-transparent-png-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:WebGL_Logo.svg-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:ISO_C++_Logo.svg-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:2187520-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:Metal_4-480.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:2187520.png">
+               </FileRef>
+               <FileRef
+                  location = "group:Opengl-logo.svg.png">
+               </FileRef>
+               <FileRef
+                  location = "group:ISO_C++_Logo.svg-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:Opengl-logo.svg-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:UnrealDark-1400.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:unreal-1.svg">
+               </FileRef>
+               <FileRef
+                  location = "group:2187520-800.webp">
+               </FileRef>
+               <FileRef
+                  location = "group:WebGL_Logo.svg.png">
+               </FileRef>
+               <FileRef
+                  location = "group:UnityDark.svg.png">
+               </FileRef>
+               <FileRef
+                  location = "group:UnrealDark-480.webp">
+               </FileRef>
+            </Group>
+            <FileRef
                location = "group:Logo.png">
+            </FileRef>
+            <FileRef
+               location = "group:gumroad-1.svg">
+            </FileRef>
+            <FileRef
+               location = "group:prof_pic-800.webp">
+            </FileRef>
+            <FileRef
+               location = "group:prof_pic-1400.webp">
             </FileRef>
             <FileRef
                location = "group:Logo-800.webp">
@@ -1748,6 +2474,9 @@
                   </FileRef>
                </Group>
             </Group>
+            <FileRef
+               location = "group:prof_pic.png">
+            </FileRef>
          </Group>
          <Group
             location = "group:audio"
@@ -1813,13 +2542,6 @@
          </Group>
       </Group>
       <Group
-         location = "group:services"
-         name = "services">
-         <FileRef
-            location = "group:index.html">
-         </FileRef>
-      </Group>
-      <Group
          location = "group:reports"
          name = "reports">
          <FileRef
@@ -1829,6 +2551,13 @@
             location = "group:psresultdesktop.svg">
          </FileRef>
       </Group>
+      <Group
+         location = "group:Reviews"
+         name = "Reviews">
+         <FileRef
+            location = "group:index.html">
+         </FileRef>
+      </Group>
    </Group>
    <FileRef
       location = "group:404.html">
@@ -1836,6 +2565,133 @@
    <Group
       location = "group:assets"
       name = "assets">
+      <Group
+         location = "group:video"
+         name = "video">
+         <FileRef
+            location = "group:pexels-engin-akyurt-6069112-960x540-30fps.mp4">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:bibliography"
+         name = "bibliography">
+         <FileRef
+            location = "group:2018-12-22-distill.bib">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:css"
+         name = "css">
+         <FileRef
+            location = "group:bootstrap.min.css">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.css.map">
+         </FileRef>
+         <FileRef
+            location = "group:jupyter.css">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.css">
+         </FileRef>
+         <FileRef
+            location = "group:jupyter-grade3.css">
+         </FileRef>
+         <FileRef
+            location = "group:jekyll-pygments-themes-github.css">
+         </FileRef>
+         <FileRef
+            location = "group:jekyll-pygments-themes-native.css">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap.min.css.map">
+         </FileRef>
+         <FileRef
+            location = "group:main.scss">
+         </FileRef>
+         <FileRef
+            location = "group:academicons.min.css">
+         </FileRef>
+         <FileRef
+            location = "group:jupyter-monokai.css">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap-toc.min.css">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:js"
+         name = "js">
+         <Group
+            location = "group:distillpub"
+            name = "distillpub">
+            <FileRef
+               location = "group:transforms.v2.js">
+            </FileRef>
+            <FileRef
+               location = "group:template.v2.js.map">
+            </FileRef>
+            <FileRef
+               location = "group:overrides.js">
+            </FileRef>
+            <FileRef
+               location = "group:template.v2.js">
+            </FileRef>
+            <FileRef
+               location = "group:transforms.v2.js.map">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:bootstrap-toc.min.js">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap.bundle.min.js.map">
+         </FileRef>
+         <FileRef
+            location = "group:bootstrap.bundle.min.js">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.js">
+         </FileRef>
+         <FileRef
+            location = "group:theme.js">
+         </FileRef>
+         <FileRef
+            location = "group:zoom.js">
+         </FileRef>
+         <FileRef
+            location = "group:masonry.js">
+         </FileRef>
+         <FileRef
+            location = "group:mdb.min.js.map">
+         </FileRef>
+         <FileRef
+            location = "group:copy_code.js">
+         </FileRef>
+         <FileRef
+            location = "group:no_defer.js">
+         </FileRef>
+         <FileRef
+            location = "group:common.js">
+         </FileRef>
+         <FileRef
+            location = "group:dark_mode.js">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:pdf"
+         name = "pdf">
+         <FileRef
+            location = "group:resume.pdf">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:plotly"
+         name = "plotly">
+         <FileRef
+            location = "group:demo.html">
+         </FileRef>
+      </Group>
       <Group
          location = "group:img"
          name = "img">
@@ -1888,19 +2744,55 @@
                   location = "group:Light"
                   name = "Light">
                   <FileRef
+                     location = "group:CakeSceneHeatMap.png">
+                  </FileRef>
+                  <FileRef
                      location = "group:vec4.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DepthSlicing.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ComputerScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpaceshipSceneHeatMap.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarSceneColor.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarSceneLightCulling.png">
                   </FileRef>
                   <FileRef
                      location = "group:DepthMinMaxTree.png">
                   </FileRef>
                   <FileRef
+                     location = "group:graph.png">
+                  </FileRef>
+                  <FileRef
                      location = "group:Frustum.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Thumbnail.png">
                   </FileRef>
                   <FileRef
                      location = "group:TiledScreen.png">
                   </FileRef>
                   <FileRef
+                     location = "group:CakeScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpaceshipScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ComputerSceneHeatMap.png">
+                  </FileRef>
+                  <FileRef
                      location = "group:vulkan_simplified_pipeline.svg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarSceneDepth.png">
                   </FileRef>
                   <FileRef
                      location = "group:1.png">
@@ -1910,19 +2802,55 @@
                   location = "group:Dark"
                   name = "Dark">
                   <FileRef
+                     location = "group:CakeSceneHeatMap.png">
+                  </FileRef>
+                  <FileRef
                      location = "group:vec4.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DepthSlicing.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ComputerScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpaceshipSceneHeatMap.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarSceneColor.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarSceneLightCulling.png">
                   </FileRef>
                   <FileRef
                      location = "group:DepthMinMaxTree.png">
                   </FileRef>
                   <FileRef
+                     location = "group:graph.png">
+                  </FileRef>
+                  <FileRef
                      location = "group:Frustum.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Thumbnail.png">
                   </FileRef>
                   <FileRef
                      location = "group:TiledScreen.png">
                   </FileRef>
                   <FileRef
+                     location = "group:CakeScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpaceshipScene.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ComputerSceneHeatMap.png">
+                  </FileRef>
+                  <FileRef
                      location = "group:vulkan_simplified_pipeline.svg">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarSceneDepth.png">
                   </FileRef>
                   <FileRef
                      location = "group:1.png">
@@ -2240,7 +3168,50 @@
             </Group>
          </Group>
          <FileRef
+            location = "group:Gumroad--Streamline-Simple-Icons.svg">
+         </FileRef>
+         <Group
+            location = "group:Logo"
+            name = "Logo">
+            <FileRef
+               location = "group:UnrealDark.png">
+            </FileRef>
+            <FileRef
+               location = "group:34-340100_unity-logo-png-white-transparent-png.png">
+            </FileRef>
+            <FileRef
+               location = "group:UnityLight.png">
+            </FileRef>
+            <FileRef
+               location = "group:ISO_C++_Logo.svg.png">
+            </FileRef>
+            <FileRef
+               location = "group:Metal_4.png">
+            </FileRef>
+            <FileRef
+               location = "group:DirectX2.webp">
+            </FileRef>
+            <FileRef
+               location = "group:2187520.png">
+            </FileRef>
+            <FileRef
+               location = "group:Opengl-logo.svg.png">
+            </FileRef>
+            <FileRef
+               location = "group:unreal-1.svg">
+            </FileRef>
+            <FileRef
+               location = "group:WebGL_Logo.svg.png">
+            </FileRef>
+            <FileRef
+               location = "group:UnityDark.svg.png">
+            </FileRef>
+         </Group>
+         <FileRef
             location = "group:Logo.png">
+         </FileRef>
+         <FileRef
+            location = "group:gumroad-1.svg">
          </FileRef>
          <Group
             location = "group:Games"
@@ -2253,132 +3224,8 @@
                </FileRef>
             </Group>
          </Group>
-      </Group>
-      <Group
-         location = "group:video"
-         name = "video">
          <FileRef
-            location = "group:pexels-engin-akyurt-6069112-960x540-30fps.mp4">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:bibliography"
-         name = "bibliography">
-         <FileRef
-            location = "group:2018-12-22-distill.bib">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:css"
-         name = "css">
-         <FileRef
-            location = "group:bootstrap.min.css">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.css.map">
-         </FileRef>
-         <FileRef
-            location = "group:jupyter.css">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.css">
-         </FileRef>
-         <FileRef
-            location = "group:jupyter-grade3.css">
-         </FileRef>
-         <FileRef
-            location = "group:jekyll-pygments-themes-github.css">
-         </FileRef>
-         <FileRef
-            location = "group:jekyll-pygments-themes-native.css">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap.min.css.map">
-         </FileRef>
-         <FileRef
-            location = "group:main.scss">
-         </FileRef>
-         <FileRef
-            location = "group:academicons.min.css">
-         </FileRef>
-         <FileRef
-            location = "group:jupyter-monokai.css">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap-toc.min.css">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:js"
-         name = "js">
-         <Group
-            location = "group:distillpub"
-            name = "distillpub">
-            <FileRef
-               location = "group:transforms.v2.js">
-            </FileRef>
-            <FileRef
-               location = "group:template.v2.js.map">
-            </FileRef>
-            <FileRef
-               location = "group:overrides.js">
-            </FileRef>
-            <FileRef
-               location = "group:template.v2.js">
-            </FileRef>
-            <FileRef
-               location = "group:transforms.v2.js.map">
-            </FileRef>
-         </Group>
-         <FileRef
-            location = "group:bootstrap-toc.min.js">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap.bundle.min.js.map">
-         </FileRef>
-         <FileRef
-            location = "group:bootstrap.bundle.min.js">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.js">
-         </FileRef>
-         <FileRef
-            location = "group:theme.js">
-         </FileRef>
-         <FileRef
-            location = "group:zoom.js">
-         </FileRef>
-         <FileRef
-            location = "group:masonry.js">
-         </FileRef>
-         <FileRef
-            location = "group:mdb.min.js.map">
-         </FileRef>
-         <FileRef
-            location = "group:copy_code.js">
-         </FileRef>
-         <FileRef
-            location = "group:no_defer.js">
-         </FileRef>
-         <FileRef
-            location = "group:common.js">
-         </FileRef>
-         <FileRef
-            location = "group:dark_mode.js">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:pdf"
-         name = "pdf">
-         <FileRef
-            location = "group:resume.pdf">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:plotly"
-         name = "plotly">
-         <FileRef
-            location = "group:demo.html">
+            location = "group:prof_pic.png">
          </FileRef>
       </Group>
       <Group
@@ -2474,9 +3321,6 @@
    </FileRef>
    <FileRef
       location = "group:LICENSE">
-   </FileRef>
-   <FileRef
-      location = "group:Project.xcworkspace">
    </FileRef>
    <FileRef
       location = "group:purgecss.config.js">
