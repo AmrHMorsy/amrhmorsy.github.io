@@ -21,12 +21,75 @@ social: true  # includes social icons at the bottom of the page
 
 <div class="row mt-4">
     <div class="col-md-8">
-    My name is <b>Amr Morsy</b>, and I am a <b>graphics engineer</b>. I specialize in building game engines, games, and real-time graphics systems. I am currently pursuing graduate studies while working as a computer graphics researcher. I write technical blogs on theoretical computer graphics, along with books and tutorials focused on low-level graphics APIs. I also offer tutoring in computer graphics and take on freelance work in graphics programming. You can view my <a href="/reviews">reviews</a>.
-        <br>
-        <br>
-            <div class="row mt-4 justify-content-center  text-center">
-            <div class="col-md-10">
-                <div class = "repo-img-light" style="
+    My name is <b>Amr Morsy</b>, and I am a <b>graphics engineer</b>. I specialize in building game engines, games, and real-time graphics systems. I am currently pursuing graduate studies while working as a computer graphics researcher. I write technical blogs on theoretical computer graphics, along with books and tutorials focused on low-level graphics APIs. I also offer tutoring in computer graphics and take on freelance work in graphics programming.
+    <br>
+    <br>
+    <div class="row mt-4 justify-content-center  text-center">
+        <div class="col-md-3">
+            <div class = "repo-img-light" style="
+                background-color: #1e2530;
+                border-left: 1px solid #4a6fa5;
+                padding: 30px 40px;
+                border-radius: 8px;
+                transition: all 0.25s ease;
+                "
+                onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+                "
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+                >
+                <a href = "/Reviews"><b>Testimonials</b></a>
+            </div>
+            
+            <div class = "repo-img-dark" style="
+                background-color: #f4f7fb;
+                border-left: 1px solid #4a6fa5;
+                padding: 30px 40px;
+                border-radius: 8px;
+                transition: all 0.25s ease;
+                "
+                onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+                "
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+                >
+                <a href = "/Reviews"><b>Testimonials</b></a>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class = "repo-img-light" style="
+                background-color: #1e2530;
+                border-left: 1px solid #4a6fa5;
+                padding: 30px 40px;
+                border-radius: 8px;
+                transition: all 0.25s ease;
+                "
+                onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+                "
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+                >
+                <a href = "/cv"><b>Resumé</b></a>
+            </div>
+            <div class = "repo-img-dark" style="
+                background-color: #f4f7fb;
+                border-left: 1px solid #4a6fa5;
+                padding: 30px 40px;
+                border-radius: 8px;
+                transition: all 0.25s ease;
+                "
+                onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+                "
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+                >
+                <a href = "/cv"><b>Resumé</b></a>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    
+    <div class="row mt-4 justify-content-center  text-center">
+        <div class="col-md-10">
+            <div class = "repo-img-light" style="
                       background-color: #1e2530;
                       border-left: 1px solid #4a6fa5;
                       border-right: 1px solid #4a6fa5;
@@ -118,9 +181,6 @@ social: true  # includes social icons at the bottom of the page
                             </figure>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -135,14 +195,8 @@ social: true  # includes social icons at the bottom of the page
     </div>
 </div>
 
-
 <br>
 <br>
-
-
 <br>
-
 <hr>
-
 <br>
-
