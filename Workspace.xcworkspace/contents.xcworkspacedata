@@ -235,9 +235,6 @@
          location = "group:announcement_1.md">
       </FileRef>
       <FileRef
-         location = "group:announcement_3.md">
-      </FileRef>
-      <FileRef
          location = "group:announcement_2.md">
       </FileRef>
    </Group>
@@ -296,9 +293,6 @@
       name = "_portfolio">
       <FileRef
          location = "group:Vejaler.md">
-      </FileRef>
-      <FileRef
-         location = "group:LightCullingDemo.md">
       </FileRef>
    </Group>
    <Group

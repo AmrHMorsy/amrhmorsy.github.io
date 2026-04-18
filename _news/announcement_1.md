@@ -1,21 +1,24 @@
 ---
 layout: post
-date: 2026-04-06 15:59:00-0400
+date: 2025-12-20 15:59:00-0400
 inline: true
 related_posts: false
 ---
 
-New Beginings — A new educational game. 
+Vejaler — A rendering engine built using C++ and Vulkan 
 <br>
-*Currently in active development.*
+Now live
+<br>
+<br>
+<a href="https://vejaler.github.io">⇗ Learn more</a>
 <br><br>
 
-<img id="hero-image2"
-     src="/assets/img/Blog/CompleteVulkanTutorial/TruckScene.png"
+<img id="hero-image"
+     src="assets/img/Blog/CompleteVulkanTutorial/CakeScene.png"
      class="scaled-img70 img-fluid">
 
 <style>
-#hero-image2 {
+#hero-image {
   transition: opacity 5s ease;
 }
 </style>
@@ -24,11 +27,14 @@ New Beginings — A new educational game.
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
     "assets/img/Blog/CompleteVulkanTutorial/TruckScene.png",
-    "assets/img/Blog/CompleteVulkanTutorial/CarScene.png"
+    "assets/img/Blog/CompleteVulkanTutorial/SpaceShipScene.png",
+    "assets/img/Blog/CompleteVulkanTutorial/PlaneScene.png",
+    "assets/img/Blog/CompleteVulkanTutorial/CakeScene.png",
+    "assets/img/Games/TheRoomSheLeftBehind/SneakPeak.png"
   ];
 
   let index = 0;
-  const img = document.getElementById("hero-image2");
+  const img = document.getElementById("hero-image");
 
   setInterval(() => {
     img.style.opacity = 0;
@@ -41,6 +47,3 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 3000);
 });
 </script>
-
-<br><br><br>
-
