@@ -9,131 +9,6 @@ thumbnail: assets/img/Blog/LightCulling/
 featured: false
 ---
 
-
-
-
-<div class="row mt-4">
-    <div class="col-md-12">
-        <div class = "repo-img-light" style="
-          background-color: #1e2530;
-          border-left: 3px solid #4a6fa5;
-          border-right: 3px solid #4a6fa5;
-          border-top: 3px solid #4a6fa5;
-          border-bottom: 3px solid #4a6fa5;
-          padding: 30px 40px;
-          border-radius: 8px;
-          transition: all 0.25s ease;
-        "
-        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
-        "
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
-        >
-            I have built a real-time minimal demo in <b>C++</b> and <b>Vulkan</b> that demonstrates light culling. It features: 
-            <br>
-            <br>
-            <ul>
-                <li>Different scenes with varying complexities</li>
-                <br>
-                <li>A simple shading model that supports lighting</li>
-                <br>
-                <li>
-                A simple UI where you can tweak different settings and immediately inspect performance. The UI parameters available to edit are:
-                    <ul>
-                        <li>A drop-down list to switch between different scenes</li>
-                        <li>The intensity and color of each light source</li>
-                        <li>The position of the light source</li>
-                        <li>The radius of the bounding sphere of the light source</li>
-                        <li>A flag to enable and disable light culling</li>
-                        <li>A flag to inspect heat map</li>
-                        <li>A drop-down list to switch between different light culling algorithms: <b>naive</b>, and <b>2.5D light culling algorithms</b></li>
-                        <li>The number of depth cells per tile</li>
-                    </ul>
-                </li>
-            </ul>
-            <br>
-
-            The package is for sale on my gumroad page. It includes:  
-            <br>
-            <br>
-
-            <ul>
-                <li>The demo macOS application</li>
-                <li>The complete <b>C++</b> and <b>Vulkan</b> source source</li>
-                <li>The 3D models of all the scenes included in the demo</li>
-            </ul>
-            <br>
-            <b><i>Only available on macOS Silicon</i></b>
-            <br>
-            <br>
-            <br>
-            <b><a href = "https://amrmorsy.gumroad.com/l/LightCullingDemo">Buy Now</a></b>
-        </div>
-        <div class = "repo-img-dark" style="
-          background-color: #f4f7fb;
-          border-left: 3px solid #4a6fa5;
-          border-right: 3px solid #4a6fa5;
-          border-top: 3px solid #4a6fa5;
-          border-bottom: 3px solid #4a6fa5;
-          padding: 30px 40px;
-          border-radius: 8px;
-          transition: all 0.25s ease;
-        "
-        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
-        "
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
-        >
-
-        I have built a real-time minimal demo in <b>C++</b> and <b>Vulkan</b> that demonstrates light culling. It features: 
-        <br>
-        <br>
-            <ul>
-                <li>Different scenes with varying complexities</li>
-                <br>
-                <li>A simple shading model that supports lighting</li>
-                <br>
-                <li>
-                A simple UI where you can tweak different settings and immediately inspect performance. The UI parameters available to edit are:
-                    <ul>
-                        <li>A drop-down list to switch between different scenes</li>
-                        <li>The intensity and color of each light source</li>
-                        <li>The position of the light source</li>
-                        <li>The radius of the bounding sphere of the light source</li>
-                        <li>A flag to enable and disable light culling</li>
-                        <li>A flag to inspect heat map</li>
-                        <li>A drop-down list to switch between different light culling algorithms: <b>naive</b>, and <b>2.5D light culling algorithms</b></li>
-                        <li>The number of depth cells per tile</li>
-                    </ul>
-                </li>
-            </ul>
-            <br>
-
-            The package is for sale on my gumroad page. It includes:  
-            <br>
-            <br>
-
-            <ul>
-                <li>The demo macOS application</li>
-                <li>The complete <b>C++</b> and <b>Vulkan</b> source source</li>
-                <li>The 3D models of all the scenes included in the demo</li>
-            </ul>
-            <br>
-            <b><i>Only available on macOS Silicon</i></b>
-            <br>
-            <br>
-            <br>
-            <b><a href = "https://amrmorsy.gumroad.com/l/LightCullingDemo">Buy Now</a></b>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-<br>
-<hr>
 <blockquote>
 <h3><b>Contents</b></h3>
 <br>
@@ -156,6 +31,7 @@ featured: false
     <li><a href="#DepthDiscont">Depth Discontinuties</a></li>
     <li><a href="#25DCullingAlgorithm">2.5D Light Culling Algorithm</a></li>
     <li><a href="#References">References</a></li>
+    <li><a href="#demo">Demo</a></li>
 </ul>
 </blockquote>
 <br>
@@ -1709,19 +1585,6 @@ uint endingIndex = startingIndex + lightCount;
 </div>
 
 <br>
-
-<figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/graph.png" class="scaled-img50" %}
-<figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
-<figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
-</figure>
-<figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html  path="assets/img/Blog/LightCulling/Light/graph.png" class="scaled-img50" %}
-<figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
-<figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
-</figure>
-
-<br>
 <br>
 
 ***
@@ -1737,3 +1600,117 @@ uint endingIndex = startingIndex + lightCount;
 <br>
 <br>
 <br>
+
+<div id = "demo" class="row mt-4">
+    <div class="col-md-12">
+        <div class = "repo-img-light" style="
+          background-color: #1e2530;
+          border-left: 3px solid #4a6fa5;
+          border-right: 3px solid #4a6fa5;
+          border-top: 3px solid #4a6fa5;
+          border-bottom: 3px solid #4a6fa5;
+          padding: 30px 40px;
+          border-radius: 8px;
+          transition: all 0.25s ease;
+        "
+        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+        "
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+        >
+            I have built a real-time minimal demo in <b>C++</b> and <b>Vulkan</b> that demonstrates light culling. It features: 
+            <br>
+            <br>
+            <ul>
+                <li>Different scenes with varying complexities</li>
+                <br>
+                <li>A simple shading model that supports lighting</li>
+                <br>
+                <li>
+                A simple UI where you can tweak different settings and immediately inspect performance. The UI parameters available to edit are:
+                    <ul>
+                        <li>A drop-down list to switch between different scenes</li>
+                        <li>The intensity and color of each light source</li>
+                        <li>The position of the light source</li>
+                        <li>The radius of the bounding sphere of the light source</li>
+                        <li>A flag to enable and disable light culling</li>
+                        <li>A flag to inspect heat map</li>
+                        <li>A drop-down list to switch between different light culling algorithms: <b>naive</b>, and <b>2.5D light culling algorithms</b></li>
+                        <li>The number of depth cells per tile</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+
+            The package is for sale on my gumroad page. It includes:  
+            <br>
+            <br>
+
+            <ul>
+                <li>The demo macOS application</li>
+                <li>The complete <b>C++</b> and <b>Vulkan</b> source source</li>
+                <li>The 3D models of all the scenes included in the demo</li>
+            </ul>
+            <br>
+            <b><i>Only available on macOS Silicon</i></b>
+            <br>
+            <br>
+            <br>
+            <b><a href = "https://amrmorsy.gumroad.com/l/LightCullingDemo">Buy Now</a></b>
+        </div>
+        <div class = "repo-img-dark" style="
+          background-color: #f4f7fb;
+          border-left: 3px solid #4a6fa5;
+          border-right: 3px solid #4a6fa5;
+          border-top: 3px solid #4a6fa5;
+          border-bottom: 3px solid #4a6fa5;
+          padding: 30px 40px;
+          border-radius: 8px;
+          transition: all 0.25s ease;
+        "
+        onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.35)';
+        "
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+        >
+
+        I have built a real-time minimal demo in <b>C++</b> and <b>Vulkan</b> that demonstrates light culling. It features: 
+        <br>
+        <br>
+            <ul>
+                <li>Different scenes with varying complexities</li>
+                <br>
+                <li>A simple shading model that supports lighting</li>
+                <br>
+                <li>
+                A simple UI where you can tweak different settings and immediately inspect performance. The UI parameters available to edit are:
+                    <ul>
+                        <li>A drop-down list to switch between different scenes</li>
+                        <li>The intensity and color of each light source</li>
+                        <li>The position of the light source</li>
+                        <li>The radius of the bounding sphere of the light source</li>
+                        <li>A flag to enable and disable light culling</li>
+                        <li>A flag to inspect heat map</li>
+                        <li>A drop-down list to switch between different light culling algorithms: <b>naive</b>, and <b>2.5D light culling algorithms</b></li>
+                        <li>The number of depth cells per tile</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+
+            The package is for sale on my gumroad page. It includes:  
+            <br>
+            <br>
+
+            <ul>
+                <li>The demo macOS application</li>
+                <li>The complete <b>C++</b> and <b>Vulkan</b> source source</li>
+                <li>The 3D models of all the scenes included in the demo</li>
+            </ul>
+            <br>
+            <b><i>Only available on macOS Silicon</i></b>
+            <br>
+            <br>
+            <br>
+            <b><a href = "https://amrmorsy.gumroad.com/l/LightCullingDemo">Buy Now</a></b>
+        </div>
+    </div>
+</div>
