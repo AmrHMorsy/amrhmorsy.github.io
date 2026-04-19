@@ -5,9 +5,7 @@ inline: true
 related_posts: false
 ---
 
-Vejaler — A rendering engine built using C++ and Vulkan 
-<br>
-Now live
+Vejaler — A rendering engine built using C++ and Vulkan — is now released
 <br>
 <br>
 <a href="https://vejaler.github.io">⇗ Learn more</a>

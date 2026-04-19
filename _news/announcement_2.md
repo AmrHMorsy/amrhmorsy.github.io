@@ -5,7 +5,7 @@ inline: true
 related_posts: false
 ---
 
-A real-time minimal demo built using C++ and Vulkan that demonstrates tiled light culling is now live
+A real-time minimal demo built using C++ and Vulkan that demonstrates tiled light culling is now released
 <br>
 <br>
 <a href="https://amrmorsy.gumroad.com/l/LightCullingDemo?layout=profile">⇗ Learn more</a>
