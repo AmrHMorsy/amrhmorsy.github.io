@@ -49,12 +49,12 @@ A **command pool** is an object of type <a href="https://docs.vulkan.org/spec/la
 
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-        {% include figure.html loading="lazy"
+        {% include figure.html 
                  path="assets/img/Blog/CompleteVulkanTutorial/Dark/1.png"
                  width="953" height="387" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-        {% include figure.html loading="lazy"
+        {% include figure.html 
                  path="assets/img/Blog/CompleteVulkanTutorial/Light/1.png"
                  width="953" height="387" %}
         </figure>

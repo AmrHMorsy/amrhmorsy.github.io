@@ -311,12 +311,12 @@ $$
     </div>
     <div class="col-md-2">
         <figure class="col-md-6 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PoissonDiskSampling/Dark/1.png"
                  width="300" height="300" %}
         </figure>
         <figure class="col-md-6 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PoissonDiskSampling/Light/1.png"
                  width="300" height="300" %}
         </figure>

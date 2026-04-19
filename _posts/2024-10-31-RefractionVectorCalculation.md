@@ -20,12 +20,12 @@ In this post, we will explore the mathematics behind calculating the refraction 
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Dark/1.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Light/1.png"
                  width="550" height="400" %}
         </figure>
@@ -56,12 +56,12 @@ Each material has its own unique index of refraction. For example, the index of 
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Dark/2.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Light/2.png"
                  width="550" height="400" %}
         </figure>
@@ -87,12 +87,12 @@ Each vector has both a parallel component and perpendicular component relative t
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Dark/3.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Light/3.png"
                  width="550" height="400" %}
         </figure>
@@ -165,12 +165,12 @@ Just like we did with the incoming light vector $$L$$, we are going to decompose
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Dark/4.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Light/4.png"
                  width="550" height="400" %}
         </figure>
@@ -323,12 +323,12 @@ This phenomena is called **Total Internal Reflection**, which means that no refr
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Dark/5.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/RefractionVectorCalculation/Light/5.png"
                  width="550" height="400" %}
         </figure>

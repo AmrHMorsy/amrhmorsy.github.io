@@ -17,12 +17,12 @@ featured: false
         </div>
         <div class="col-md-4">
             <figure class="col-md-6 text-center theme-img repo-img-light">
-              {% include figure.html loading="lazy"
+              {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Dark/1.png"
                  width="300" height="300" %}
             </figure>
             <figure class="col-md-6 text-center theme-img repo-img-dark">
-              {% include figure.html loading="lazy"
+              {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Light/1.png"
                  width="300" height="300" %}
             </figure>
@@ -95,12 +95,12 @@ Since \(||P||\) is the distance from \(P\) to the origin, then \(\frac{N}{||N||}
   
     <div>
         <figure class="col-md-6 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Dark/2.png"
                  width="500" height="400" %}
         </figure>
         <figure class="col-md-6 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Light/2.png"
                  width="500" height="400" %}
         </figure>
@@ -134,12 +134,12 @@ gives the signed distance \(d\) from the plane to another parallel plane that pa
    
     <div>
         <figure class="col-md-4 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Dark/3.png"
                  width="450" height="450" %}
         </figure>
         <figure class="col-md-4 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Light/3.png"
                  width="450" height="450" %}
         </figure>
@@ -414,12 +414,12 @@ $$
     
     <div>
         <figure class="col-md-4 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Dark/4.png"
                  width="450" height="450" %}
         </figure>
         <figure class="col-md-4 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Light/4.png"
                  width="450" height="450" %}
         </figure>
@@ -502,12 +502,12 @@ $$
     
     <div>
         <figure class="col-md-5 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Dark/5.png"
                  width="450" height="450" %}
         </figure>
         <figure class="col-md-5 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/PlanesIn3DSpace/Light/5.png"
                  width="450" height="450" %}
         </figure>

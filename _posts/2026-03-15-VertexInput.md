@@ -146,12 +146,12 @@ void main()
 
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-{% include figure.html loading="lazy" path="assets/img/Blog/VertexInput/Dark/1.png" class="scaled-img25"%}
+{% include figure.html  path="assets/img/Blog/VertexInput/Dark/1.png" class="scaled-img25"%}
   <figcaption>Figure 1</figcaption>
 </figure>
 
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-{% include figure.html loading="lazy" path="assets/img/Blog/VertexInput/Light/1.png" class="scaled-img25"%}
+{% include figure.html  path="assets/img/Blog/VertexInput/Light/1.png" class="scaled-img25"%}
   <figcaption>Figure 1</figcaption>
 </figure>
 
@@ -192,12 +192,12 @@ info.pVertexAttributeDescriptions = A.data();
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-{% include figure.html loading="lazy" path="assets/img/Blog/VertexInput/Dark/2.png" class="scaled-img70"%}
+{% include figure.html  path="assets/img/Blog/VertexInput/Dark/2.png" class="scaled-img70"%}
   <figcaption>Figure 2</figcaption>
 </figure>
 
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-{% include figure.html loading="lazy" path="assets/img/Blog/VertexInput/Light/2.png" class="scaled-img70"%}
+{% include figure.html  path="assets/img/Blog/VertexInput/Light/2.png" class="scaled-img70"%}
   <figcaption>Figure 2</figcaption>
 </figure>
 

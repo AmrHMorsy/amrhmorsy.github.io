@@ -49,12 +49,12 @@ featured: false
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Dark/1.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Light/1.png"
                  width="550" height="400" %}
         </figure>
@@ -76,12 +76,12 @@ $$
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Dark/2.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Light/2.png"
                  width="550" height="400" %}
         </figure>
@@ -125,12 +125,12 @@ $$
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Dark/3.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Light/3.png"
                  width="550" height="400" %}
         </figure>
@@ -156,12 +156,12 @@ $$
 <br>
 <div class="row align-items-center mt-3">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Dark/4.png"
                  width="550" height="400" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/ReflectionVectorCalculation/Light/4.png"
                  width="550" height="400" %}
         </figure>

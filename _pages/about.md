@@ -109,25 +109,25 @@ social: true  # includes social icons at the bottom of the page
                     <div class="row mt-4">
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-light">
-                                {% include figure.html loading="lazy" path="assets/img/Blog/CompleteVulkanTutorial/Dark/Thumbnail.png" class="scaled-img100"%}
+                                {% include figure.html  path="assets/img/Blog/CompleteVulkanTutorial/Dark/Thumbnail.png" class="scaled-img100"%}
                             <figcaption>Vulkan</figcaption>
                             </figure>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-light">
-                                {% include figure.html loading="lazy" path="assets/img/Logo/Opengl-logo.svg.png" class="scaled-img100"%}
+                                {% include figure.html  path="assets/img/Logo/Opengl-logo.svg.png" class="scaled-img100"%}
                             <figcaption>OpenGL</figcaption>
                             </figure>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-light">
-                                {% include figure.html loading="lazy" path="assets/img/Logo/Metal_4.png" class="scaled-img50"%}
+                                {% include figure.html  path="assets/img/Logo/Metal_4.png" class="scaled-img50"%}
                             <figcaption>Metal</figcaption>
                             </figure>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-light">
-                                {% include figure.html loading="lazy" path="assets/img/Logo/2187520.png" class="scaled-img50"%}
+                                {% include figure.html  path="assets/img/Logo/2187520.png" class="scaled-img50"%}
                             <figcaption>DirectX</figcaption>
                             </figure>
                         </div>
@@ -158,25 +158,25 @@ social: true  # includes social icons at the bottom of the page
                     <div class="row mt-4">
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-dark">
-                                {% include figure.html loading="lazy" path="assets/img/Blog/CompleteVulkanTutorial/Dark/Thumbnail.png" class="scaled-img100"%}
+                                {% include figure.html  path="assets/img/Blog/CompleteVulkanTutorial/Dark/Thumbnail.png" class="scaled-img100"%}
                             <figcaption>Vulkan</figcaption>
                             </figure>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-dark">
-                                {% include figure.html loading="lazy" path="assets/img/Logo/Opengl-logo.svg.png" class="scaled-img100"%}
+                                {% include figure.html  path="assets/img/Logo/Opengl-logo.svg.png" class="scaled-img100"%}
                             <figcaption>OpenGL</figcaption>
                             </figure>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-dark">
-                                {% include figure.html loading="lazy" path="assets/img/Logo/Metal_4.png" class="scaled-img50"%}
+                                {% include figure.html  path="assets/img/Logo/Metal_4.png" class="scaled-img50"%}
                             <figcaption>Metal</figcaption>
                             </figure>
                         </div>
                         <div class="col-md-3 d-flex justify-content-center">
                             <figure class="col-md-12 text-center theme-img repo-img-dark">
-                                {% include figure.html loading="lazy" path="assets/img/Logo/2187520.png" class="scaled-img50"%}
+                                {% include figure.html  path="assets/img/Logo/2187520.png" class="scaled-img50"%}
                             <figcaption>DirectX</figcaption>
                             </figure>
                         </div>
@@ -187,10 +187,10 @@ social: true  # includes social icons at the bottom of the page
     </div>
     <div class="col-md-4">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/prof_pic.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/prof_pic.png" class="scaled-img100"%}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/prof_pic.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/prof_pic.png" class="scaled-img100"%}
         </figure>
     </div>
 </div>

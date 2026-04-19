@@ -176,7 +176,7 @@ Light culling is an optimization technique in rendering. The idea of light culli
 <br>
 <div class="col-md-7">
     <figure class="col-md-12 text-center theme-img repo-img-light">
-        {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/vulkan_simplified_pipeline.svg" %}
+        {% include figure.html  path="assets/img/Blog/LightCulling/Dark/vulkan_simplified_pipeline.svg" %}
         <figcaption>
         <br><a href="https://docs.vulkan.org/tutorial/latest/03_Drawing_a_triangle/02_Graphics_pipeline_basics/00_Introduction.html#"
              style="font-size: 14px; color:#ffffff;">
@@ -185,7 +185,7 @@ Light culling is an optimization technique in rendering. The idea of light culli
         </figcaption>
     </figure>
     <figure class="col-md-12 text-center theme-img repo-img-dark">
-        {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/vulkan_simplified_pipeline.svg"%}
+        {% include figure.html  path="assets/img/Blog/LightCulling/Light/vulkan_simplified_pipeline.svg"%}
         <figcaption>
           <br><a href="https://docs.vulkan.org/tutorial/latest/03_Drawing_a_triangle/02_Graphics_pipeline_basics/00_Introduction.html#"
              style="font-size: 14px; color:#000000;">
@@ -252,11 +252,11 @@ $$
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/TiledScreen.png" class="scaled-img70" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/TiledScreen.png" class="scaled-img70" %}
 <figcaption>Screen dissected into \(16 \times 10\) tiles</figcaption>
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/TiledScreen.png" class="scaled-img70" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/TiledScreen.png" class="scaled-img70" %}
 <figcaption>Screen dissected into \(16 \times 10\) tiles</figcaption>
 </figure>
 
@@ -294,10 +294,10 @@ glm::vec4 ComputeLightBoundingSphere(glm::vec3 position, glm::vec3 color, float 
 The data structure used to represent the bounding sphere is **vec4**. The **XYZ** component of the vector will contain the center of the sphere and the **W** component will contain the radius of the sphere. 
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/vec4.png" class="scaled-img50" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/vec4.png" class="scaled-img50" %}
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/vec4.png" class="scaled-img50" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/vec4.png" class="scaled-img50" %}
 </figure>
 
 <br>
@@ -313,10 +313,10 @@ $$
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/frustum.png" class="scaled-img40" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/frustum.png" class="scaled-img40" %}
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/frustum.png" class="scaled-img40" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/frustum.png" class="scaled-img40" %}
 </figure>
 
 <br>
@@ -789,21 +789,21 @@ In a typical rendering pipeline without a depth pre-pass, the fragment shader ma
 <div class="row align-items-center mt-3">
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneColor.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/CarSceneColor.png" class="scaled-img100"%}
         <figcaption>Color of a car scene</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneColor.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/CarSceneColor.png" class="scaled-img100"%}
         <figcaption>Color of a car scene</figcaption>
         </figure>
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneDepth.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/CarSceneDepth.png" class="scaled-img100"%}
         <figcaption>Depth of a car scene</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneDepth.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/CarSceneDepth.png" class="scaled-img100"%}
         <figcaption>Depth of a car scene</figcaption>
         </figure>
     </div>
@@ -872,11 +872,11 @@ and store the minimum and the maximum into \([D_{ij}]_{[I_{ij}]_{xy}}\)
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/DepthMinMaxTree.png" class="scaled-img70" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/DepthMinMaxTree.png" class="scaled-img70" %}
 <figcaption>Computing minimum and maximum depth in parallel using a grid of \(4 \times 4\) threads; or 16 threads</figcaption>
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/DepthMinMaxTree.png" class="scaled-img70" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/DepthMinMaxTree.png" class="scaled-img70" %}
 <figcaption>Computing minimum and maximum depth in parallel using a grid of \(4 \times 4\) threads; or 16 threads</figcaption>
 </figure>
 
@@ -1350,21 +1350,21 @@ uint endingIndex = startingIndex + lightCount;
 <div class="row align-items-center mt-3">
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneColor.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/CarSceneColor.png" class="scaled-img100"%}
         <figcaption>Car scene</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneColor.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/CarSceneColor.png" class="scaled-img100"%}
         <figcaption>Car scene</figcaption>
         </figure>
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CarSceneLightCulling.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/CarSceneLightCulling.png" class="scaled-img100"%}
         <figcaption>Car scene heat map, where minimum intensity of each light source is \(\frac{I}{10}\)</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CarSceneLightCulling.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/CarSceneLightCulling.png" class="scaled-img100"%}
         <figcaption>Car scene heat map, where minimum intensity of each light source is \(\frac{I}{10}\)</figcaption>
         </figure>
     </div>
@@ -1400,21 +1400,21 @@ The solution to this problem is to use an algorithm called **$$2.5D$$ light cull
 <div class="row align-items-center mt-3">
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CakeScene.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/CakeScene.png" class="scaled-img100"%}
         <figcaption>Cake scene</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CakeScene.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/CakeScene.png" class="scaled-img100"%}
         <figcaption>Cake scene</figcaption>
         </figure>
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/CakeSceneHeatMap.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/CakeSceneHeatMap.png" class="scaled-img100"%}
         <figcaption>Cake scene heat map, where minimum intensity of each light source is \(\frac{I}{2}\)</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/CakeSceneHeatMap.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/CakeSceneHeatMap.png" class="scaled-img100"%}
         <figcaption>Cake scene heat map, where minimum intensity of each light source is \(\frac{I}{2}\)</figcaption>
         </figure>
     </div>
@@ -1455,11 +1455,11 @@ A typical way to represent cells in the depth range is the use of the bits withi
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/DepthSlicing.png" class="scaled-img70"%}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/DepthSlicing.png" class="scaled-img70"%}
 <figcaption>Depth Slicing</figcaption>
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/DepthSlicing.png" class="scaled-img70"%}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/DepthSlicing.png" class="scaled-img70"%}
 <figcaption>Depth Slicing</figcaption>
 </figure>
 
@@ -1482,21 +1482,21 @@ atomicOr(tilesGeometryBitMask[tileIndex], 1u << threadCellIndex);
 <div class="row align-items-center mt-3">
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/ComputerScene.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/ComputerScene.png" class="scaled-img100"%}
         <figcaption>Desk scene</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/ComputerScene.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/ComputerScene.png" class="scaled-img100"%}
         <figcaption>Desk scene</figcaption>
         </figure>
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/ComputerSceneHeatMap.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/ComputerSceneHeatMap.png" class="scaled-img100"%}
         <figcaption>Desk scene heat map, where minimum intensity of each light source is \(\frac{9 \, I}{10}\)</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/ComputerSceneHeatMap.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/ComputerSceneHeatMap.png" class="scaled-img100"%}
         <figcaption>Desk scene heat map, where minimum intensity of each light source is \(\frac{9 \, I}{10}\)</figcaption>
         </figure>
     </div>
@@ -1688,21 +1688,21 @@ uint endingIndex = startingIndex + lightCount;
 <div class="row align-items-center mt-3">
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/SpaceshipScene.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/SpaceshipScene.png" class="scaled-img100"%}
         <figcaption>Spaceship scene</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/SpaceshipScene.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/SpaceshipScene.png" class="scaled-img100"%}
         <figcaption>Spaceship scene</figcaption>
         </figure>
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/SpaceshipSceneHeatMap.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Dark/SpaceshipSceneHeatMap.png" class="scaled-img100"%}
         <figcaption>Spaceship scene heat map, where minimum intensity of each light source is \(\frac{I}{100}\)</figcaption>
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/SpaceshipSceneHeatMap.png" class="scaled-img100"%}
+            {% include figure.html  path="assets/img/Blog/LightCulling/Light/SpaceshipSceneHeatMap.png" class="scaled-img100"%}
         <figcaption>Spaceship scene heat map, where minimum intensity of each light source is \(\frac{I}{100}\)</figcaption>
         </figure>
     </div>
@@ -1711,12 +1711,12 @@ uint endingIndex = startingIndex + lightCount;
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Dark/Graph.png" class="scaled-img50" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/Graph.png" class="scaled-img50" %}
 <figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
 <figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html loading="lazy" path="assets/img/Blog/LightCulling/Light/Graph.png" class="scaled-img50" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/Graph.png" class="scaled-img50" %}
 <figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
 <figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
 </figure>

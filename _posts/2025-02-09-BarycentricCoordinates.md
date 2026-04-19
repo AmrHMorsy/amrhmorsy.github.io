@@ -41,17 +41,17 @@ featured: false
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/BarycentricCoordinates/Dark/2.png" class="scaled-img70" %}
+            {% include figure.html  path="assets/img/Blog/BarycentricCoordinates/Dark/2.png" class="scaled-img70" %}
         </figure>
         
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/BarycentricCoordinates/Light/2.png" class="scaled-img70" %}
+            {% include figure.html  path="assets/img/Blog/BarycentricCoordinates/Light/2.png" class="scaled-img70" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy" path="assets/img/Blog/BarycentricCoordinates/Dark/3.png" class="scaled-img70" %}
+            {% include figure.html  path="assets/img/Blog/BarycentricCoordinates/Dark/3.png" class="scaled-img70" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy" path="assets/img/Blog/BarycentricCoordinates/Light/3.png" class="scaled-img70" %}
+            {% include figure.html  path="assets/img/Blog/BarycentricCoordinates/Light/3.png" class="scaled-img70" %}
         </figure>
     </div>
 </div>
@@ -96,12 +96,12 @@ where $$α + β + γ = 1 $$ and $$\; 0 \; \geq α, \; β, \; γ \leq \; 1 \;$$.
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Dark/4.png"
                 class="scaled-img80" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Light/4.png"
                                  class="scaled-img70" %}
         </figure>
@@ -136,12 +136,12 @@ There are **two** ways to calculate the area of the triangle:
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Dark/6.png"
                                  class="scaled-img70" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Light/6.png"
                                  class="scaled-img70" %}
         </figure>
@@ -177,12 +177,12 @@ There are **two** ways to calculate the area of the triangle:
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Dark/7.png"
                                  class="scaled-img70" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Light/7.png"
                                  class="scaled-img70" %}
         </figure>
@@ -213,12 +213,12 @@ There are **two** ways to calculate the area of the triangle:
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Dark/5.png"
                                  class="scaled-img70" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Light/5.png"
                                  class="scaled-img70" %}
         </figure>
@@ -271,12 +271,12 @@ There are **two** ways to calculate the area of the triangle:
     </div>
     <div class="col-md-6">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Dark/9.png"
                                  class="scaled-img70" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Light/9.png"
                                  class="scaled-img70" %}
         </figure>
@@ -338,22 +338,22 @@ There are **two** ways to calculate the area of the triangle:
     </div>
     <div class="col-md-4">
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Dark/10.png"
                                  class="scaled-img90" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Light/10.png"
                                  class="scaled-img90" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-light">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Dark/11.png"
                                  class="scaled-img70" %}
         </figure>
         <figure class="col-md-12 text-center theme-img repo-img-dark">
-            {% include figure.html loading="lazy"
+            {% include figure.html 
                  path="assets/img/Blog/BarycentricCoordinates/Light/11.png"
                                  class="scaled-img70" %}
         </figure>
