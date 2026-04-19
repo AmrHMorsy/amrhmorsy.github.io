@@ -313,10 +313,10 @@ $$
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/frustum.png" class="scaled-img40" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/Frustum.png" class="scaled-img40" %}
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html  path="assets/img/Blog/LightCulling/Light/frustum.png" class="scaled-img40" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/Frustum.png" class="scaled-img40" %}
 </figure>
 
 <br>
@@ -1711,12 +1711,12 @@ uint endingIndex = startingIndex + lightCount;
 <br>
 
 <figure class="col-md-12 text-center theme-img repo-img-light">
-    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/Graph.png" class="scaled-img50" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Dark/graph.png" class="scaled-img50" %}
 <figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
 <figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
 </figure>
 <figure class="col-md-12 text-center theme-img repo-img-dark">
-    {% include figure.html  path="assets/img/Blog/LightCulling/Light/Graph.png" class="scaled-img50" %}
+    {% include figure.html  path="assets/img/Blog/LightCulling/Light/graph.png" class="scaled-img50" %}
 <figcaption>A graph plotting frameTime against numCellsPerTile for the spaceship scene containing \(530991\) Triangles</figcaption>
 <figcaption>The spaceship scene contains \(530991\) Triangles</figcaption>
 </figure>
